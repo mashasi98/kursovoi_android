@@ -7,6 +7,9 @@ import android.os.Bundle;
 import com.example.zatsepicoffee_v1.R;
 
 import com.google.common.net.InternetDomainName;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,8 +34,15 @@ public class AddInfToFB extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
+        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+        firebaseAppCheck.installAppCheckProviderFactory(
+                SafetyNetAppCheckProviderFactory.getInstance());
+
+
+
         setContentView(R.layout.activity_add_inf_to_fb);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        db = FirebaseFirestore.getInstance();
         System.out.println("ADD TO FIRESTORE__________________");
 
 
@@ -188,9 +198,7 @@ public class AddInfToFB extends AppCompatActivity {
 
     public void writeNewNCaffee(String caffeId,String imagePath, String adress, String time, String contacts){
         CaffeClass caffeClass= new CaffeClass(caffeId,imagePath,adress,time,contacts);
-//        db.collection("caffe").document("caffeId"+caffeId).set(caffeClass);
-
-        mDatabase.child("caffe").child("caffeId"+String.valueOf(caffeId)).setValue(caffeClass);
+        db.collection("caffe").document("caffeId"+caffeId).set(caffeClass);
     }
     public void writeNewNews(String newsId,String imagePath, String title, String discription) {
         NewsClass news = new NewsClass(newsId, imagePath, title,  discription);

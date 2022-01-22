@@ -9,6 +9,9 @@ import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zatsepicoffee_v1.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,6 +24,11 @@ public class MainActivity extends  AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
+        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+        firebaseAppCheck.installAppCheckProviderFactory(
+                SafetyNetAppCheckProviderFactory.getInstance());
+        FirebaseAuth.getInstance().signOut();
         setContentView(R.layout.activity_main);
 
         // adding video on welcome page
@@ -35,8 +43,6 @@ public class MainActivity extends  AppCompatActivity{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
-                FirebaseAuth.getInstance().signOut();
                 user = FirebaseAuth.getInstance().getCurrentUser();
                 System.out.println("USER________________"+user);
 

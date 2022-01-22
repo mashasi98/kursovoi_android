@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:251674313106:android:3cc132e7018043023f814b",
+        "mobilesdk_app_id": "1:251674313106:android:d0e64e3acd7b64b93f814b",
         "android_client_info": {
           "package_name": "com.example.zatsepicoffee_v1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "251674313106-47iua5n0ia78pqrcckgjhin89rjbsnpn.apps.googleusercontent.com",
+          "client_id": "251674313106-6hiblq8dma0binb2nu99j5l63e4sdt0e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.zatsepicoffee_v1",
-            "certificate_hash": "64d2771b149bd14433be74cacc9419cce804ed1c"
+            "certificate_hash": "796f9770a0dba80576d13628124e444d76980175"
           }
         },
         {
@@ -29,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD-2_JBSig93obFuaENqdk622GDBB1J9aw"
+          "current_key": "AIzaSyBplD6pgiMQ32-sEBm5a7yFyPdri79qAcw"
         }
       ],
       "services": {
