@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="italic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="@+id/scrollView"
+    tools:context="Activity.MainMenu">
+
+
+    <ScrollView
+
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="675dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <ImageButton
+                    android:id="@+id/logoBtnMain"
+                    android:layout_width="93dp"
+                    android:layout_height="91dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="13dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo_b"
+                    app:layout_constraintBottom_toTopOf="@+id/welcomeImg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.006"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/helloTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/yanone_kaffeesatz_bold"
+                        android:text="ПРИВЕТ,МАРИЯ!"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/helloTxtBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/rubik_light"
+                        android:text="Хорошего дня "
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="italic"
+                        android:paddingEnd="40dp"
+
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/helloImageMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/welcomeImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="145dp"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp"
+                >
+
+
+                <TextView
+                    android:id="@+id/popularTxtMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/yanone_kaffeesatz_bold"
+                    android:text="ПОПУЛЯРНОЕ"
+                    android:layout_marginBottom="4dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+
+                    android:layout_marginStart="10dp"/>
+
+                <Button
+                    android:id="@+id/viewAllMenuBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:fontFamily="@font/rubik_light"
+                    android:insetBottom="0dp"
+                    android:onClick="onClick"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="10dp"
+                    android:text="все меню "
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_popular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white" />
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/caffe_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/yanone_kaffeesatz_bold"
+                    android:text="НАШИ КОФЕЙНИ"
+                    android:textAlignment="textStart"
+
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_caffe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/news_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/yanone_kaffeesatz_bold"
+                    android:text="НОВОСТИ И АКЦИИ"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/we_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/yanone_kaffeesatz_bold"
+                    android:text="МЫ В СОЦСЕТЯХ"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FBFAFA"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp">
+
+
+                <ImageButton
+                    android:id="@+id/btnFb"
+                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+                    android:layout_width="77dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:paddingBottom="17dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/fb_ico"
+                    android:tint="#95FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnInst"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+                <ImageButton
+                    android:id="@+id/btnInst"
+                    android:layout_width="72dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/inst_ico"
+                    android:tint="#95FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnFb"
+                    app:layout_constraintStart_toEndOf="@+id/mediaText"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageButton
+                    android:id="@+id/btnTA"
+                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+                    android:layout_width="84dp"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="50dp"
+                    android:paddingBottom="18dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:tint="#95FFFFFF"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ta_ico"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnInst"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBarr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:backgroundTint="#32210C"
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="0dp"
+        >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginEnd="15dp"
+                android:layout_gravity="bottom"
+                android:paddingTop="5dp">
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp">
+                    <ImageButton
+                        android:id="@+id/appBarHomeBtn"
+                        android:layout_width="60dp"
+                        android:layout_height="52dp"
+                        android:backgroundTint="#00572708"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/home"
+                        android:paddingTop="20dp"
+
+                        android:layout_marginEnd="20dp"
+                        android:tint="@color/white" />
+
+                    <ImageButton
+                        android:id="@+id/appBarShopcardBtn"
+                        android:layout_width="60dp"
+                        android:layout_height="52dp"
+                        android:paddingTop="20dp"
+                        android:backgroundTint="#00572708"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/shop_icon"
+                        android:tint="@color/white"
+                        android:layout_marginEnd="15dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:layout_marginStart="15dp">
+                    <ImageButton
+                        android:id="@+id/appBarprofileBtn"
+                        android:layout_width="74dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="15dp"
+
+                        android:backgroundTint="#00572708"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/profile_ico"
+                        android:tint="@color/white" />
+
+                    <ImageButton
+                        android:id="@+id/appBarFavoritesdBtn"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="#00572708"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/like"
+                        android:tint="@color/white" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:id="@+id/fab"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:elevation="6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/cup"
+            android:tint="@color/black"
+            app:backgroundTint="#27180D"
+            app:layout_anchor="@+id/bottomAppBarr"
+            app:layout_anchorGravity="center" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</LinearLayout>
+

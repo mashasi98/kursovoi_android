@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/double_border_thin">
+
+        <ImageButton
+
+            android:id="@+id/news_btns_item"
+            android:layout_width="168dp"
+            android:layout_height="238dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20dp"
+            android:background="#00FFFFFF"
+            android:longClickable="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/news1" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/news_text1_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/cormorant_garamond_bold"
+                android:text="События 10-16 января"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/news_text2_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                    android:textSize="10sp"
+                android:fontFamily="@font/cormorant_sc_bold"
+                android:text="На этой неделе:\n15 января (суббота) в 15:00 - Немецкий клуб «Aber bitte auf Deutsch» на Ставропольской, 224 - каждую субботу играем и разговариваем на немецком языке, разрушая языковые барьеры. Билет - любой напиток ☺️ Тут побольше о клубе: @aber_bitte_auf_deutsch
+\n\n16 января (воскресенье) в 19:00 - Мафия для любителей поржать на Северной, 299 - собираемся большой компанией, играем и хохочем 😄 от души! Билет - любой напиток.
+\n\nСсылка для записи в шапке профиля!
+\nДо встречи 😽"
+                android:textAlignment="textStart"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

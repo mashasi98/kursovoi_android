@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "251674313106",
+    "firebase_url": "https://zatsepicoffee-a8b39-default-rtdb.firebaseio.com",
+    "project_id": "zatsepicoffee-a8b39",
+    "storage_bucket": "zatsepicoffee-a8b39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251674313106:android:3cc132e7018043023f814b",
+        "android_client_info": {
+          "package_name": "com.example.zatsepicoffee_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251674313106-47iua5n0ia78pqrcckgjhin89rjbsnpn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zatsepicoffee_v1",
+            "certificate_hash": "64d2771b149bd14433be74cacc9419cce804ed1c"
+          }
+        },
+        {
+          "client_id": "251674313106-j7jp863ph9oke1j7bpv213d4f1jt2frk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2_JBSig93obFuaENqdk622GDBB1J9aw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251674313106-j7jp863ph9oke1j7bpv213d4f1jt2frk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
