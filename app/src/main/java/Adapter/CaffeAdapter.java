@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.zatsepicoffee_v1.R;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,13 +48,17 @@ public class CaffeAdapter extends RecyclerView.Adapter<CaffeAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//            Glide.with(context)
-//                    .load(caffeClasses.get(position).getImagePath())
-//                    .into(holder.imageButton);
 
-            holder.adress.setText(caffeClasses.get(position).getAdress());
-            holder.time.setText(caffeClasses.get(position).getTime());
-            holder.contacts.setText(caffeClasses.get(position).getContacts());
+        String url = caffeClasses.get(position).getImagePath();
+        Glide
+                .with(context)
+                .load(url)
+                .centerCrop()
+                .into(holder.imageButton);
+        holder.time.setText(caffeClasses.get(position).getTime());
+        holder.adress.setText(caffeClasses.get(position).getAdress());
+        holder.contacts.setText(caffeClasses.get(position).getContacts());
+
     }
 
     @Override

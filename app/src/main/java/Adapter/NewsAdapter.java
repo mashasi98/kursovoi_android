@@ -10,29 +10,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.bumptech.glide.Glide;
 import com.example.zatsepicoffee_v1.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import Activity.MenuActivity;
-import BaseClases.CategoryClass;
+import BaseClases.NewsClass;
 
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
-
-    List<CategoryClass> categoryClasses;
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
+    List<NewsClass> newsClasses;
     Context context;
 
-    public CategoryAdapter() {
+
+    public NewsAdapter(List<NewsClass> newsClasses, Context context) {
+        this.newsClasses = newsClasses;
+        this.context = context;
+
     }
 
-    public CategoryAdapter(List<CategoryClass> categoryClasses, Context context) {
-        this.categoryClasses = categoryClasses;
-        this.context = context;
-    }
     // зависимости от того,к чему принадлежит row_item дописать еще одно поле
 
     @NonNull
@@ -40,7 +36,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_item_category,parent,false);
+                .inflate(R.layout.row_item_news,parent,false);
 
         return new ViewHolder(view);
     }
@@ -48,27 +44,33 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String url = categoryClasses.get(position).getImagePath();
+
+        String url = newsClasses.get(position).getImagePath();
         Glide
                 .with(context)
                 .load(url)
                 .centerCrop()
                 .into(holder.imageButton);
-            holder.title.setText(categoryClasses.get(position).getTitle());
+        holder.title.setText(newsClasses.get(position).getTitle());
+        holder.description.setText(newsClasses.get(position).getDiscription());
+
+
     }
 
     @Override
     public int getItemCount() {
-        return categoryClasses.size();
+        return newsClasses.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageButton imageButton;
-        TextView title;
+        TextView title,description;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageButton=itemView.findViewById(R.id.popular_btns_pop);
-            title=itemView.findViewById(R.id.popular_txts_pop);
+            imageButton=itemView.findViewById(R.id.news_btns_item);
+            title=itemView.findViewById(R.id.news_text1_item);
+            description=itemView.findViewById(R.id.news_text2_item);
+
         }
     }
 }

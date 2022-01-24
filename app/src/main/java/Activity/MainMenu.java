@@ -183,8 +183,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the end");
                       recyclerViewMain.setLayoutManager(linearLayoutManager);
                       recyclerViewMain.setItemAnimator(itemAnimator);
-                      recyclerViewMain.setAdapter(new
-                      CaffeAdapter(caffeClassList, MainMenu.this));
+                      recyclerViewMain.setAdapter(
+                              new CaffeAdapter(caffeClassList, MainMenu.this));
                       Log.d(TAG, String.valueOf(caffeClassList.size()) + "  AFTER ADAPTER IS GO ");
 //                                              for (CaffeClass cc:caffeClassList) {
 //                                                  Log.d(TAG, cc.getId());
