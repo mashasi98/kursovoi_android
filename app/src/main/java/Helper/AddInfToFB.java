@@ -39,15 +39,14 @@ public class AddInfToFB extends AppCompatActivity {
         firebaseAppCheck.installAppCheckProviderFactory(
                 SafetyNetAppCheckProviderFactory.getInstance());
 
-
-
         setContentView(R.layout.activity_add_inf_to_fb);
-        db = FirebaseFirestore.getInstance();
+        db=FirebaseFirestore.getInstance();
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
         System.out.println("ADD TO FIRESTORE__________________");
 
 
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
-//        //новости
+        //новости
 //        List<String> imagePath = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/News_image%2Fnews2.jpg?alt=media&token=c3455ec6-1b6e-4662-98d8-04121656ef72"
 //                , "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/News_image%2Fnews2.jpg?alt=media&token=c3455ec6-1b6e-4662-98d8-04121656ef72"
 //                , "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/News_image%2Fnews3.jpg?alt=media&token=44c55b3c-ccb2-49ba-aba4-22fb8b9fb142a",
@@ -118,80 +117,83 @@ public class AddInfToFB extends AppCompatActivity {
 //        for (int i = 0; i <imagePath.size() ; i++) {
 //            writeNewNews(Integer.toString(i),imagePath.get(i),title.get(i),discription.get(i));
 //        }
-//
 
-//        //кофейни
-        List<String> imagePath1 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_chap.jpg?alt=media&token=6a6978b8-78d7-4987-b24f-82996f300b5e"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_kras.jpg?alt=media&token=1cfe123e-f4de-4507-a1dc-856b2079f7f8"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_kras_small.jpg?alt=media&token=dc82f948-bae8-4d37-a1de-2870fbea9dbe"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_neftyan.jpg?alt=media&token=82cf0196-c160-4d48-82fa-50b451145a56",
-                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_sedina11.jpg?alt=media&token=fd0fa272-e05b-4a2c-bca2-af99c3a06940"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_sev.jpg?alt=media&token=3b903723-ca18-42a3-8144-a90f5b150e59"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_stadion.jpg?alt=media&token=0e123657-bba9-4c21-a0ef-2f4a56c73e93"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_stavr131.jpg?alt=media&token=0735e8d7-f542-4bab-aff1-13660c662cb0"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_stavr254.jpg?alt=media&token=6aa4d62e-cd9b-4c74-a757-07fbbaeda448");
-        List<String> adress = Arrays.asList("г.Краснодар,ул. Чапаева, 88",
-                "г.Краснодар,ул. Красная, 137",
-                "г.Краснодар,ул. Красная, 164",
-                "г.Краснодар,ул. ш. Нефтяников, 30",
-                "г.Краснодар,ул. Митрофана Седина, 11",
-                "г.Краснодар,ул. Северная, 299",
-                "г.Краснодар,ул. Восточно-Кругликовская, 18/1",
-                "г.Краснодар,ул. Ставропольская, 131",
-                "г.Краснодар,ул. Ставропольская, 224");
-        List<String> time = Arrays.asList("Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
-                "Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
-                "Понедельник-Суббота 09:00 – 23:00\n" + "Воскресеньe 10:00 – 23:00",
-                "Понедельник-Суббота 07:30 – 22:00\n" + "Воскресеньe 10:00 – 22:00",
-                "Понедельник-Пятница 07:30 – 18:00\n" + "Суббота-Воскресеньe Выходной",
-                "Понедельник-Воскресеньe 07:30 – 23:00",
-                "Понедельник-Суббота 08:00 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
-                "Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
-                "Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00");
-        List<String> contacts = Arrays.asList("8 (928) 849-10-50");
-        System.out.println("ADD TO FIRESTORE befor for__________________");
-        for (int i = 0; i <imagePath1.size() ; i++) {
-            System.out.println("ADD TO FIRESTORE in for__________________");
-            writeNewNCaffee(Integer.toString(i+1),imagePath1.get(i),adress.get(i),time.get(i),contacts.get(0));
-        }
 
-        //товары
-//        //товар
-//        List<String> imagePath2 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Famericano.jpg?alt=media&token=eecb71d0-cf75-4b7e-a08e-55f11ee6093d"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Fcappuchino.jpeg?alt=media&token=fe52aa96-016c-455a-81ae-b87ffd918333"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Flatte.jpg?alt=media&token=e4a0f7b6-1d43-4614-9874-c495ffa6309e"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Ffalt_white.jpeg?alt=media&token=5140151d-0a48-4b57-801f-30ffad27a1a5",
-//                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Fraf.jpg?alt=media&tokenS=f9379dc2-c57d-4c9f-8016-747a8ceb466b"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Flatte.jpg?alt=media&token=e4a0f7b6-1d43-4614-9874-c495ffa6309e");
-//        List<Integer> price = Arrays.asList(149,139,229,179,269,259);
-//        List<String> title = Arrays.asList("Американо", "Капучино", "Латте", "Флэт уайт", "Раф классика", "Мокко");
-//        List<String> discription = Arrays.asList("Классический черный кофе",
-//                "Насыщенный кофейно-молочный напиток с плотной молочной пеной",
-//                "Молочный напиток на основе кофе с очень плотной молочной пеной",
-//                "Молочный напиток на основе эспрессо.",
-//                "Кофейный напиток со сливочно-ванильным вкусом с очень нежной и плотной текстурой.",
-//                "Классический шоколадный кофе с шоколадной крошкой.");
-//        List<String> sizeItem = Arrays.asList("250","400","400","250","400","300");
-//        List<String> category = Arrays.asList("Классика");
-//
-//        //Категория
-//        ArrayList<ItemsClass> itemsClassesAr=new ArrayList<>();
+////        //кофейни
+//        List<String> imagePath1 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_chap.jpg?alt=media&token=6a6978b8-78d7-4987-b24f-82996f300b5e"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_kras.jpg?alt=media&token=1cfe123e-f4de-4507-a1dc-856b2079f7f8"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_kras_small.jpg?alt=media&token=dc82f948-bae8-4d37-a1de-2870fbea9dbe"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_neftyan.jpg?alt=media&token=82cf0196-c160-4d48-82fa-50b451145a56",
+//                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_sedina11.jpg?alt=media&token=fd0fa272-e05b-4a2c-bca2-af99c3a06940"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_sev.jpg?alt=media&token=3b903723-ca18-42a3-8144-a90f5b150e59"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_stadion.jpg?alt=media&token=0e123657-bba9-4c21-a0ef-2f4a56c73e93"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_stavr131.jpg?alt=media&token=0735e8d7-f542-4bab-aff1-13660c662cb0"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Cafe_image%2Fcaff_stavr254.jpg?alt=media&token=6aa4d62e-cd9b-4c74-a757-07fbbaeda448");
+//        List<String> adress = Arrays.asList("г.Краснодар,ул. Чапаева, 88",
+//                "г.Краснодар,ул. Красная, 137",
+//                "г.Краснодар,ул. Красная, 164",
+//                "г.Краснодар,ул. ш. Нефтяников, 30",
+//                "г.Краснодар,ул. Митрофана Седина, 11",
+//                "г.Краснодар,ул. Северная, 299",
+//                "г.Краснодар,ул. Восточно-Кругликовская, 18/1",
+//                "г.Краснодар,ул. Ставропольская, 131",
+//                "г.Краснодар,ул. Ставропольская, 224");
+//        List<String> time = Arrays.asList("Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
+//                "Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
+//                "Понедельник-Суббота 09:00 – 23:00\n" + "Воскресеньe 10:00 – 23:00",
+//                "Понедельник-Суббота 07:30 – 22:00\n" + "Воскресеньe 10:00 – 22:00",
+//                "Понедельник-Пятница 07:30 – 18:00\n" + "Суббота-Воскресеньe Выходной",
+//                "Понедельник-Воскресеньe 07:30 – 23:00",
+//                "Понедельник-Суббота 08:00 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
+//                "Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00",
+//                "Понедельник-Суббота 07:30 – 23:00\n" + "Воскресеньe 09:00 – 23:00");
+//        List<String> contacts = Arrays.asList("8 (928) 849-10-50");
+//        System.out.println("ADD TO FIRESTORE befor for__________________");
+//        for (int i = 0; i <imagePath1.size() ; i++) {
+//            System.out.println("ADD TO FIRESTORE in for__________________");
+//            writeNewNCaffee(Integer.toString(i),imagePath1.get(i),adress.get(i),time.get(i),contacts.get(0));
+//        }
+
+
+        //товар
+        List<String> imagePath2 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Famericano.jpg?alt=media&token=eecb71d0-cf75-4b7e-a08e-55f11ee6093d"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Fcappuchino.jpeg?alt=media&token=fe52aa96-016c-455a-81ae-b87ffd918333"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Flatte.jpg?alt=media&token=e4a0f7b6-1d43-4614-9874-c495ffa6309e"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Ffalt_white.jpeg?alt=media&token=5140151d-0a48-4b57-801f-30ffad27a1a5",
+                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Fraf.jpg?alt=media&tokenS=f9379dc2-c57d-4c9f-8016-747a8ceb466b"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Menu_classic_image%2Flatte.jpg?alt=media&token=e4a0f7b6-1d43-4614-9874-c495ffa6309e");
+        List<Integer> price = Arrays.asList(149,139,229,179,269,259);
+        List<String> title = Arrays.asList("Американо", "Капучино", "Латте", "Флэт уайт", "Раф классика", "Мокко");
+        List<String> discription = Arrays.asList("Классический черный кофе",
+                "Насыщенный кофейно-молочный напиток с плотной молочной пеной",
+                "Молочный напиток на основе кофе с очень плотной молочной пеной",
+                "Молочный напиток на основе эспрессо.",
+                "Кофейный напиток со сливочно-ванильным вкусом с очень нежной и плотной текстурой.",
+                "Классический шоколадный кофе с шоколадной крошкой.");
+        List<String> sizeItem = Arrays.asList("250","400","400","250","400","300");
+        List<String> category = Arrays.asList("Классика");
 //        for (int i = 0; i <imagePath2.size() ; i++) {
-//            ItemsClass itemsClass= new ItemsClass(Integer.toString(i),price.get(i),sizeItem.get(i)+"ml",imagePath2.get(i),title.get(i),discription.get(i),category.get(0));
-//            itemsClassesAr.add(itemsClass);
+//            writeNewPrefers(Integer.toString(i),price.get(i),sizeItem.get(i),imagePath2.get(i),title.get(i),discription.get(i),category.get(i));
 //        }
-//        List<String> imagePath3 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_classic.jpg?alt=media&token=74cce5fa-b9a0-42d5-8bbc-8199519b2095"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_aliter.jpeg?alt=media&token=41b74273-ba85-415f-93e0-d607c2a1dff3"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_author.jpg?alt=media&token=c3d21c2e-bddb-4fd8-b6f7-1a89cf91999e"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_iced.png?alt=media&token=9fbc1aab-0df2-4adb-ba54-b4d2ee15d601",
-//                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_warming.jpg?alt=media&token=e98c69f1-5c8e-4026-8433-46601ea1d122"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_fresh.jpeg?alt=media&token=071a183a-7d69-4c5a-b74e-880f4a8b4917"
-//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_meal.jpeg?alt=media&token=fb1b56b4-c3df-4cf1-9c0f-5fe6e37791b5");
-//
-//        List<String> title3 = Arrays.asList("КЛАССИКА", "АЛЬТЕРНАТИВА", "АВТОРСКОЕ","ОХЛАЖДАЕТ", "СОГРЕВАЕТ",  "ОСВЕЖАЕТ","Перекусить");
-//        for (int i = 0; i <imagePath3.size() ; i++) {
-//            writeNewCategory(Integer.toString(i),imagePath3.get(i),title3.get(i),itemsClassesAr);
-//        }
+
+//        Категория
+        ArrayList<ItemsClass> itemsClassesAr=new ArrayList<>();
+        for (int i = 0; i <imagePath2.size() ; i++) {
+            ItemsClass itemsClass= new ItemsClass(Integer.toString(i),price.get(i),sizeItem.get(i)+"ml",imagePath2.get(i),title.get(i),discription.get(i),category.get(0));
+            itemsClassesAr.add(itemsClass);
+        }
+        List<String> imagePath3 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_classic.jpg?alt=media&token=74cce5fa-b9a0-42d5-8bbc-8199519b2095"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_aliter.jpeg?alt=media&token=41b74273-ba85-415f-93e0-d607c2a1dff3"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_author.jpg?alt=media&token=c3d21c2e-bddb-4fd8-b6f7-1a89cf91999e"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_iced.png?alt=media&token=9fbc1aab-0df2-4adb-ba54-b4d2ee15d601",
+                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_warming.jpg?alt=media&token=e98c69f1-5c8e-4026-8433-46601ea1d122"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_fresh.jpeg?alt=media&token=071a183a-7d69-4c5a-b74e-880f4a8b4917"
+                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_meal.jpeg?alt=media&token=fb1b56b4-c3df-4cf1-9c0f-5fe6e37791b5");
+
+        List<String> title3 = Arrays.asList("КЛАССИКА", "АЛЬТЕРНАТИВА", "АВТОРСКОЕ","ОХЛАЖДАЕТ", "СОГРЕВАЕТ",  "ОСВЕЖАЕТ","Перекусить");
+        for (int i = 0; i <imagePath3.size() ; i++) {
+            writeNewCategory(Integer.toString(i),imagePath3.get(i),title3.get(i),itemsClassesAr);
+        }
 
 
     }
@@ -199,9 +201,12 @@ public class AddInfToFB extends AppCompatActivity {
     public void writeNewNCaffee(String caffeId,String imagePath, String adress, String time, String contacts){
         CaffeClass caffeClass= new CaffeClass(caffeId,imagePath,adress,time,contacts);
         db.collection("caffe").document("caffeId"+caffeId).set(caffeClass);
+
+//        mDatabase.child("caffe").child("caffeId"+String.valueOf(caffeId)).setValue(caffeClass);
     }
     public void writeNewNews(String newsId,String imagePath, String title, String discription) {
         NewsClass news = new NewsClass(newsId, imagePath, title,  discription);
+        db.collection("news").document("newsId"+newsId).set(news);
 //        mDatabase.child("News_tabel").child("newsId"+String.valueOf(newsId)).setValue(news);
     }
 
@@ -212,5 +217,11 @@ public class AddInfToFB extends AppCompatActivity {
     public void writeNewCategory(String id, String imagePath, String title, ArrayList<ItemsClass> category_items) {
         CategoryClass categoryClass= new CategoryClass(id, imagePath, title,  category_items);
 //        mDatabase.child("Item_tabel").child("itemCategory"+String.valueOf(id)).setValue(categoryClass);
+            db.collection("category").document("categoryId"+id).set(categoryClass);
+    }
+    public void writeNewPrefers(String id, int price, String size, String imagePath, String title, String discription, String category) {
+        ItemsClass itemsClass= new ItemsClass(id,price,size,imagePath,title,discription,category);
+        db.collection("users").document("user1").collection("prefers").document("preferId"+id).set(itemsClass);
+//        mDatabase.child("Item_tabel").child("itemId"+String.valueOf(id)).setValue(itemsClass);
     }
 }

@@ -46,9 +46,9 @@ public class CaffeAdapter extends RecyclerView.Adapter<CaffeAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            Glide.with(context)
-                    .load(caffeClasses.get(position).getImagePath())
-                    .into(holder.imageButton);
+//            Glide.with(context)
+//                    .load(caffeClasses.get(position).getImagePath())
+//                    .into(holder.imageButton);
 
             holder.adress.setText(caffeClasses.get(position).getAdress());
             holder.time.setText(caffeClasses.get(position).getTime());
