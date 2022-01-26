@@ -7,12 +7,16 @@
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_menu_items.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_phone_verif.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/menu_descrt.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_itemTabel.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_cafee.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_category.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_categoryItems.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_news.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_popular.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_tabel.xml" value="0.2526041666666667" />
       </map>
     </option>
   </component>

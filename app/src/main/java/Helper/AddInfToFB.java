@@ -3,6 +3,7 @@ package Helper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.zatsepicoffee_v1.R;
 
@@ -176,24 +177,27 @@ public class AddInfToFB extends AppCompatActivity {
 //            writeNewPrefers(Integer.toString(i),price.get(i),sizeItem.get(i),imagePath2.get(i),title.get(i),discription.get(i),category.get(i));
 //        }
 
-//        Категория
+
+//ТОВАР
         ArrayList<ItemsClass> itemsClassesAr=new ArrayList<>();
         for (int i = 0; i <imagePath2.size() ; i++) {
-            ItemsClass itemsClass= new ItemsClass(Integer.toString(i),price.get(i),sizeItem.get(i)+"ml",imagePath2.get(i),title.get(i),discription.get(i),category.get(0));
-            itemsClassesAr.add(itemsClass);
-        }
-        List<String> imagePath3 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_classic.jpg?alt=media&token=74cce5fa-b9a0-42d5-8bbc-8199519b2095"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_aliter.jpeg?alt=media&token=41b74273-ba85-415f-93e0-d607c2a1dff3"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_author.jpg?alt=media&token=c3d21c2e-bddb-4fd8-b6f7-1a89cf91999e"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_iced.png?alt=media&token=9fbc1aab-0df2-4adb-ba54-b4d2ee15d601",
-                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_warming.jpg?alt=media&token=e98c69f1-5c8e-4026-8433-46601ea1d122"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_fresh.jpeg?alt=media&token=071a183a-7d69-4c5a-b74e-880f4a8b4917"
-                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_meal.jpeg?alt=media&token=fb1b56b4-c3df-4cf1-9c0f-5fe6e37791b5");
 
-        List<String> title3 = Arrays.asList("КЛАССИКА", "АЛЬТЕРНАТИВА", "АВТОРСКОЕ","ОХЛАЖДАЕТ", "СОГРЕВАЕТ",  "ОСВЕЖАЕТ","Перекусить");
-        for (int i = 0; i <imagePath3.size() ; i++) {
-            writeNewCategory(Integer.toString(i),imagePath3.get(i),title3.get(i),itemsClassesAr);
+            writeNewItem(title.get(i),price.get(i),sizeItem.get(i)+"ml",imagePath2.get(i),title.get(i),discription.get(i),category.get(0),true);
         }
+
+        //        Категория
+//        List<String> imagePath3 = Arrays.asList("https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_classic.jpg?alt=media&token=74cce5fa-b9a0-42d5-8bbc-8199519b2095"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_aliter.jpeg?alt=media&token=41b74273-ba85-415f-93e0-d607c2a1dff3"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_author.jpg?alt=media&token=c3d21c2e-bddb-4fd8-b6f7-1a89cf91999e"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_iced.png?alt=media&token=9fbc1aab-0df2-4adb-ba54-b4d2ee15d601",
+//                "https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_warming.jpg?alt=media&token=e98c69f1-5c8e-4026-8433-46601ea1d122"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_fresh.jpeg?alt=media&token=071a183a-7d69-4c5a-b74e-880f4a8b4917"
+//                ,"https://firebasestorage.googleapis.com/v0/b/zatsepicoffee-a8b39.appspot.com/o/Category_images%2Fcategory_meal.jpeg?alt=media&token=fb1b56b4-c3df-4cf1-9c0f-5fe6e37791b5");
+//
+//        List<String> title3 = Arrays.asList("КЛАССИКА", "АЛЬТЕРНАТИВА", "АВТОРСКОЕ","ОХЛАЖДАЕТ", "СОГРЕВАЕТ",  "ОСВЕЖАЕТ","Перекусить");
+//        for (int i = 0; i <imagePath3.size() ; i++) {
+//            writeNewCategory(Integer.toString(i),imagePath3.get(i),title3.get(i));
+//        }
 
 
     }
@@ -210,17 +214,18 @@ public class AddInfToFB extends AppCompatActivity {
 //        mDatabase.child("News_tabel").child("newsId"+String.valueOf(newsId)).setValue(news);
     }
 
-    public void writeNewItem(String id, int price, String size, String imagePath, String title, String discription, String category) {
-        ItemsClass itemsClass= new ItemsClass(id,price,size,imagePath,title,discription,category);
+    public void writeNewItem(String id, int price, String size, String imagePath, String title, String discription, String category,Boolean isPopular) {
+        ItemsClass itemsClass= new ItemsClass(id,price,size,imagePath,title,discription,category,isPopular);
 //        mDatabase.child("Item_tabel").child("itemId"+String.valueOf(id)).setValue(itemsClass);
+        db.collection("items").document(id).set(itemsClass);
     }
-    public void writeNewCategory(String id, String imagePath, String title, ArrayList<ItemsClass> category_items) {
-        CategoryClass categoryClass= new CategoryClass(id, imagePath, title,  category_items);
+    public void writeNewCategory(String id, String imagePath, String title) {
+        CategoryClass categoryClass= new CategoryClass(id, imagePath, title);
 //        mDatabase.child("Item_tabel").child("itemCategory"+String.valueOf(id)).setValue(categoryClass);
             db.collection("category").document("categoryId"+id).set(categoryClass);
     }
-    public void writeNewPrefers(String id, int price, String size, String imagePath, String title, String discription, String category) {
-        ItemsClass itemsClass= new ItemsClass(id,price,size,imagePath,title,discription,category);
+    public void writeNewPrefers(String id, int price, String size, String imagePath, String title, String discription, String category,Boolean isPopular) {
+        ItemsClass itemsClass= new ItemsClass(id,price,size,imagePath,title,discription,category,isPopular);
         db.collection("users").document("user1").collection("prefers").document("preferId"+id).set(itemsClass);
 //        mDatabase.child("Item_tabel").child("itemId"+String.valueOf(id)).setValue(itemsClass);
     }

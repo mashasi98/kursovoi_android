@@ -17,11 +17,12 @@ import java.util.List;
 
 import BaseClases.NewsClass;
 
-
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     List<NewsClass> newsClasses;
     Context context;
 
+    public NewsAdapter() {
+    }
 
     public NewsAdapter(List<NewsClass> newsClasses, Context context) {
         this.newsClasses = newsClasses;

@@ -3,12 +3,12 @@ package BaseClases;
 public class ItemsClass {
     private int price;
     private String  id,size,imagePath,title,discription,category;
-    private boolean isAvaliable=true;
+    private boolean isAvaliable=true,isPopular=false;
 
     public ItemsClass() {
     }
 
-    public ItemsClass(String id, int price, String size, String imagePath, String title, String discription, String category) {
+    public ItemsClass(String id, int price, String size, String imagePath, String title, String discription, String category,Boolean isPopular) {
         this.id = id;
         this.price = price;
         this.size=size;
@@ -16,6 +16,15 @@ public class ItemsClass {
         this.title = title;
         this.discription = discription;
         this.category = category;
+        this.isPopular=isPopular;
+    }
+
+    public boolean getPopular() {
+        return isPopular;
+    }
+
+    public void setPopular(boolean popular) {
+        isPopular = popular;
     }
 
     public String getSize() {

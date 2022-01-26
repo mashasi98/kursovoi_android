@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 
 import com.example.zatsepicoffee_v1.R;
@@ -31,8 +32,10 @@ import BaseClases.CategoryClass;
 import BaseClases.MainModels;
 import BaseClases.NewsClass;
 
-public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageButton backToMainBtb;
+public class MenuActivity extends AppCompatActivity implements View.OnClickListener  {
+
+    ImageButton backToMainBtb,img;
+
     RecyclerView recyclerViewCategory;
     private FirebaseFirestore db;
     private static final String TAG = "TAG";
@@ -51,12 +54,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         backToMainBtb=findViewById(R.id.back_toMain_btn);
         backToMainBtb.setOnClickListener(this);
-
-
-        //recycleView
-        Integer[] ListImageCategory= {R.drawable.category_classic, R.drawable.category_aliter, R.drawable.category_author, R.drawable.category_iced, R.drawable.category_warming, R.drawable.category_fresh, R.drawable.category_meal};
-        String[] categoryName = {"Классика", "Альтернатива", "Авторское", "Охлаждает","Согревает","Освежает","Перекусить"};
         recyclerViewCategory=findViewById(R.id.recycle_view_category);
+
+        //layout
+//        ln=findViewById(R.id.layoutCategory);
+//        ln.setOnClickListener(this);
+
+//        //recycleView
+//        Integer[] ListImageCategory= {R.drawable.category_classic, R.drawable.category_aliter, R.drawable.category_author, R.drawable.category_iced, R.drawable.category_warming, R.drawable.category_fresh, R.drawable.category_meal};
+//        String[] categoryName = {"Классика", "Альтернатива", "Авторское", "Охлаждает","Согревает","Освежает","Перекусить"};
+//        recyclerViewCategory=findViewById(R.id.recycle_view_category);
 //        recyclerViewCategory(ListImageCategory,categoryName,horiz_scrl_animation,recyclerViewCategory);
         loadCategoryFromFarebase(recyclerViewCategory,horiz_scrl_animation);
     }
@@ -64,12 +71,17 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         if ( v.getId() == R.id.back_toMain_btn ) {
             Intent intent = new Intent(MenuActivity.this, MainMenu.class);
             startActivity(intent);
+        }else if(v.getId() == R.id.popular_btns_pop){
+            Intent intent = new Intent(MenuActivity.this, MenuActivityItems.class);
+            startActivity(intent);
         }
     }
     private void loadCategoryFromFarebase(RecyclerView recyclerView, RecyclerView.ItemAnimator itemAnimator) {
 
         List<CategoryClass> categoryClassList = new ArrayList<>();
-        GridLayoutManager layoutManager=new GridLayoutManager(this,2);
+
+        StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MenuActivity.this, LinearLayoutManager.HORIZONTAL, false);
 //
 //        Log.d(TAG, String.valueOf(newsClassList.size()));
 //        Log.d(TAG, String.valueOf(newsClassList.size()) + " at the start");
@@ -88,11 +100,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         }
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()));
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the end");
-                        recyclerView.setLayoutManager(layoutManager);
+                        recyclerView.setLayoutManager(staggeredGridLayoutManager);
                         recyclerView.setItemAnimator(itemAnimator);
-                        recyclerView.setAdapter(
-                                new CategoryAdapter(categoryClassList, MenuActivity.this));
-                        Log.d(TAG, String.valueOf(categoryClassList.size()) + "  AFTER ADAPTER IS GO");
+                        CategoryAdapter categoryAdapter=new CategoryAdapter(categoryClassList, MenuActivity.this);
+                        recyclerView.setAdapter(categoryAdapter);
+
+
 //                                              for (NewsClass cc:newsClassList) {
 //                                                  Log.d(TAG, cc.getId());
 //
@@ -106,21 +119,5 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-
-
-
-
-//    public void recyclerViewCategory(Integer[] listImage,String[] categoryName, RecyclerView.ItemAnimator itemAnimator, RecyclerView recyclerViewMain, ArrayList<MainModels> arrayList){
-//        StaggeredGridLayoutManager staggeredGridLayoutManager= new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-//        arrayList = new ArrayList<>();
-//        for (int i = 0, listImageLength = listImage.length; i < listImageLength; i++) {
-//
-//            arrayList.add(new MainModels(listImage[i],categoryName[i]));
-//        }
-//        recyclerViewMain.setLayoutManager(staggeredGridLayoutManager);
-//        recyclerViewMain.setItemAnimator(itemAnimator);
-//        recyclerViewMain.setAdapter(new CategoryAdapter(arrayList, MenuActivity.this,R.layout.row_item_category));
-//    }
 }
 

@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.zatsepicoffee_v1.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import Activity.MenuActivity;
 import BaseClases.CategoryClass;
 
 
@@ -26,8 +25,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     List<CategoryClass> categoryClasses;
     Context context;
 
+
     public CategoryAdapter() {
     }
+
 
     public CategoryAdapter(List<CategoryClass> categoryClasses, Context context) {
         this.categoryClasses = categoryClasses;
@@ -39,8 +40,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_item_category,parent,false);
+                .inflate(R.layout.row_item_category, parent, false);
 
         return new ViewHolder(view);
     }
@@ -54,21 +56,39 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 .load(url)
                 .centerCrop()
                 .into(holder.imageButton);
-            holder.title.setText(categoryClasses.get(position).getTitle());
+        holder.title.setText(categoryClasses.get(position).getTitle());
+
+
     }
+
 
     @Override
     public int getItemCount() {
         return categoryClasses.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+    public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener  {
         ImageButton imageButton;
         TextView title;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageButton=itemView.findViewById(R.id.popular_btns_pop);
-            title=itemView.findViewById(R.id.popular_txts_pop);
+            imageButton = itemView.findViewById(R.id.popular_btns_pop);
+            title = itemView.findViewById(R.id.popular_txts_pop);
+            imageButton.setOnClickListener(this);
+
+
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            Log.d("TAG", String.valueOf(position));
+
+            Log.d("TAG", categoryClasses.get(position).getId());
         }
     }
 }
+

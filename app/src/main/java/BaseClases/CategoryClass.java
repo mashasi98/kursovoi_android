@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class CategoryClass {
     private String  id,imagePath,title;
-    private ArrayList<ItemsClass> category_items;
+
 
     public CategoryClass() {
     }
 
-    public CategoryClass(String id, String imagePath, String title, ArrayList<ItemsClass> category_items) {
+    public CategoryClass(String id, String imagePath, String title) {
         this.id = id;
         this.imagePath = imagePath;
         this.title = title;
-        this.category_items = category_items;
+
     }
 
     public String getId() {
@@ -40,11 +40,5 @@ public class CategoryClass {
         this.title = title;
     }
 
-    public ArrayList<ItemsClass> getCategory_items() {
-        return category_items;
-    }
 
-    public void setCategory_items(ArrayList<ItemsClass> category_items) {
-        this.category_items = category_items;
-    }
 }

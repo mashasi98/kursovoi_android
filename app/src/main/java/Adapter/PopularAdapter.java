@@ -10,21 +10,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.zatsepicoffee_v1.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import BaseClases.ItemsClass;
 import BaseClases.MainModels;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
-    ArrayList<MainModels> mainModels;
+    List<ItemsClass> itemsClasses;
     Context context;
-    int row;
 
-    public PopularAdapter(ArrayList<MainModels> mainModels, Context context,int row) {
-        this.mainModels = mainModels;
+    public PopularAdapter() {
+    }
+
+    public PopularAdapter(List<ItemsClass> itemsClasses, Context context) {
+        this.itemsClasses = itemsClasses;
         this.context = context;
-        this.row=row;
+
     }
 
     // зависимости от того,к чему принадлежит row_item дописать еще одно поле
@@ -34,7 +39,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(row,parent,false);
+                .inflate(R.layout.row_item_popular,parent,false);
 
         return new ViewHolder(view);
     }
@@ -42,22 +47,30 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.imageButton.setImageResource(mainModels.get(position).getPicture());
-//            holder.textView.setText(mainModels.get(position).getDescription());
+
+        String url=itemsClasses.get(position).getImagePath();
+        Glide
+                .with(context)
+                .load(url)
+                .centerCrop()
+                .into(holder.imageButton);
+        holder.title.setText(itemsClasses.get(position).getTitle());
+//        holder.price.setText(itemsClasses.get(position).getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return mainModels.size();
+        return itemsClasses.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageButton imageButton;
-        TextView textView;
+        TextView title,price;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageButton=itemView.findViewById(R.id.popular_btns);
-            textView=itemView.findViewById(R.id.popular_txts);
+            title=itemView.findViewById(R.id.popular_txts);
+            price=itemView.findViewById(R.id.popular_txtPrise);
         }
     }
 }

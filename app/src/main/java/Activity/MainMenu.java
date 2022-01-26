@@ -59,7 +59,9 @@ import java.util.Queue;
 import Adapter.Adapt;
 import Adapter.CaffeAdapter;
 import Adapter.NewsAdapter;
+import Adapter.PopularAdapter;
 import BaseClases.CaffeClass;
+import BaseClases.ItemsClass;
 import BaseClases.MainModels;
 import BaseClases.NewsClass;
 import Interfaces.ICaffeLoadLissener;
@@ -111,9 +113,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         btnTA.setOnClickListener(this);
 
         loadCafeFromFarebase(recyclerViewCafe, horiz_scrl_animation);
-        loadNewsFromFarebase(recyclerViewNews,horiz_scrl_animation);
-
-
+        loadNewsFromFarebase(recyclerViewNews, horiz_scrl_animation);
+        loadPopularFromFarebase(recyclerViewPopular, horiz_scrl_animation);
 
 //        init(horiz_scrl_animation,iCaffeLoadLissener);
 //        loadCafeFromFarebase();
@@ -159,6 +160,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
+
     private void loadCafeFromFarebase(RecyclerView recyclerViewMain, RecyclerView.ItemAnimator itemAnimator) {
 
         List<CaffeClass> caffeClassList = new ArrayList<>();
@@ -169,23 +171,23 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         db.collection("caffe").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                  @Override
-                  public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                      if (queryDocumentSnapshots.isEmpty()) {
-                          Log.d(TAG, "onSuccess: LIST EMPTY");
-                          return;
-                      } else {
-                          List<CaffeClass> types = queryDocumentSnapshots.toObjects(CaffeClass.class);
-                          caffeClassList.addAll(types);
-                          Log.d(TAG, "onSuccess: " + caffeClassList);
-                      }
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if (queryDocumentSnapshots.isEmpty()) {
+                            Log.d(TAG, "onSuccess: LIST EMPTY");
+                            return;
+                        } else {
+                            List<CaffeClass> types = queryDocumentSnapshots.toObjects(CaffeClass.class);
+                            caffeClassList.addAll(types);
+                            Log.d(TAG, "onSuccess: " + caffeClassList);
+                        }
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()));
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the end");
-                      recyclerViewMain.setLayoutManager(linearLayoutManager);
-                      recyclerViewMain.setItemAnimator(itemAnimator);
-                      recyclerViewMain.setAdapter(
-                              new CaffeAdapter(caffeClassList, MainMenu.this));
-                      Log.d(TAG, String.valueOf(caffeClassList.size()) + "  AFTER ADAPTER IS GO ");
+                        recyclerViewMain.setLayoutManager(linearLayoutManager);
+                        recyclerViewMain.setItemAnimator(itemAnimator);
+                        recyclerViewMain.setAdapter(
+                                new CaffeAdapter(caffeClassList, MainMenu.this));
+                        Log.d(TAG, String.valueOf(caffeClassList.size()) + "  AFTER ADAPTER IS GO ");
 //                                              for (CaffeClass cc:caffeClassList) {
 //                                                  Log.d(TAG, cc.getId());
 //                                                  Log.d(TAG, cc.getAdress());
@@ -194,8 +196,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 //                                                  Log.d(TAG, cc.getContacts());
 //                                                  Log.d(TAG,"___________________________");
 //                                              }
-                  }
-              });
+                    }
+                });
     }
 
     private void loadNewsFromFarebase(RecyclerView recyclerView, RecyclerView.ItemAnimator itemAnimator) {
@@ -236,6 +238,48 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 });
     }
 
+    private void loadPopularFromFarebase(RecyclerView recyclerViewMain, RecyclerView.ItemAnimator itemAnimator) {
+
+        List<ItemsClass> itemsClasses = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainMenu.this, LinearLayoutManager.HORIZONTAL, false);
+
+        Log.d(TAG, String.valueOf(itemsClasses.size()));
+        Log.d(TAG, String.valueOf(itemsClasses.size()) + " at the start");
+
+        db.collection("items").whereEqualTo("popular",true).whereEqualTo("avaliable",true)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (QueryDocumentSnapshot q : queryDocumentSnapshots) {
+                            Log.d(TAG, q + " queryDocumentSnapshots is here_________________________________________");
+                        }
+                        if (queryDocumentSnapshots.isEmpty()) {
+                            Log.d(TAG, "onSuccess: LIST EMPTY");
+                            return;
+                        } else {
+                            List<ItemsClass> types = queryDocumentSnapshots.toObjects(ItemsClass.class);
+                            Log.d(TAG, "onSuccess: types "+types);
+                            itemsClasses.addAll(types);
+                            Log.d(TAG, "onSuccess: " + itemsClasses);
+                        }
+
+                        Log.d(TAG, String.valueOf(itemsClasses.size()) + " at the end");
+                        recyclerViewMain.setLayoutManager(linearLayoutManager);
+                        recyclerViewMain.setItemAnimator(itemAnimator);
+                        recyclerViewMain.setAdapter(new PopularAdapter(itemsClasses, MainMenu.this));
+                        Log.d(TAG, String.valueOf(itemsClasses.size()) + "  AFTER ADAPTER IS GO ");
+                                              for (ItemsClass cc:itemsClasses) {
+                                                  Log.d(TAG, cc.getId());
+                                                  Log.d(TAG, cc.getTitle());
+//                                                  Log.d(TAG, cc.getSize());
+                                                  Log.d(TAG, cc.getImagePath());
+
+                                                  Log.d(TAG,"___________________________");
+                                              }
+                    }
+                });
+    }
 
 
 //    public void recyclerViewCafe(Integer[] listImage, RecyclerView.ItemAnimator itemAnimator, RecyclerView recyclerViewMain) {

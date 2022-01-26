@@ -18,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends  AppCompatActivity{
 
-    private VideoView videoView;
+//    private VideoView videoView;
     private FirebaseUser user;
 
     @Override
@@ -31,7 +31,7 @@ public class MainActivity extends  AppCompatActivity{
         FirebaseAuth.getInstance().signOut();
         setContentView(R.layout.activity_main);
 
-        // adding video on welcome page
+//         adding video on welcome page
 //        videoView= findViewById(R.id.videoView);
 //        String videoPath="android.resource://"+getPackageName()+"/"+R.raw.v1_1;
 ////        Uri creating immutable reference
