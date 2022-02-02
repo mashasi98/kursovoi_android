@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.example.zatsepicoffee_v1.R;
 
 import java.util.List;
 
+import Activity.MenuActivity;
+import Activity.MenuActivityItems;
 import BaseClases.CategoryClass;
 
 
@@ -86,8 +89,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         public void onClick(View v) {
             int position = getAdapterPosition();
             Log.d("TAG", String.valueOf(position));
-
             Log.d("TAG", categoryClasses.get(position).getId());
+            Intent intent = new Intent(context, MenuActivityItems.class);
+            intent.putExtra("categoryId", categoryClasses.get(position).getId());
+            intent.putExtra("categoryTitle", categoryClasses.get(position).getTitle());
+            context.startActivity(intent);
+
         }
     }
 }

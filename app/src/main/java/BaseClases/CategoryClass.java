@@ -1,6 +1,7 @@
 package BaseClases;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryClass {
     private String  id,imagePath,title;
@@ -15,6 +16,8 @@ public class CategoryClass {
         this.title = title;
 
     }
+
+
 
     public String getId() {
         return id;

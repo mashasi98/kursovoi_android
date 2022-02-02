@@ -2,6 +2,7 @@ package BaseClases;
 
 public class CaffeClass {
     private String  imagePath,adress,time,contacts,id;
+
     public CaffeClass() {
     }
 

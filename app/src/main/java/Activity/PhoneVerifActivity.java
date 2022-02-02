@@ -13,9 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.zatsepicoffee_v1.R;
+import com.example.zatsepicoffee_v1.databinding.ActivityPhoneVerifBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,6 +42,8 @@ public class PhoneVerifActivity extends AppCompatActivity {
     private EditText edtPhone, edtOTP;
     private Button verifyOTPBtn, generateOTPBtn;
     private String verificationId;
+    private ActivityPhoneVerifBinding binding;
+    LinearLayout ph1,cd1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,10 @@ public class PhoneVerifActivity extends AppCompatActivity {
         edtOTP = findViewById(R.id.codeEt);
         verifyOTPBtn = findViewById(R.id.phoneSumbBtn);
         generateOTPBtn = findViewById(R.id.phoneContBtn);
+        ph1=findViewById(R.id.phoneL1);
+        cd1=findViewById(R.id.codeL1);
+        cd1.setVisibility(View.GONE);
+
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,9 +72,11 @@ public class PhoneVerifActivity extends AppCompatActivity {
 
                     Toast.makeText(PhoneVerifActivity.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
                 } else {
-
+                    ph1.setVisibility(View.GONE);
                     String phone = "+7" + edtPhone.getText().toString();
                     sendVerificationCode(phone);
+                    cd1.setVisibility(View.VISIBLE);
+
                 }
             }
         });
@@ -97,6 +107,7 @@ public class PhoneVerifActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             FirebaseUser user = task.getResult().getUser();
+                            finish();
                             Intent i = new Intent(PhoneVerifActivity.this, MainMenu.class);
                             startActivity(i);
                             finish();

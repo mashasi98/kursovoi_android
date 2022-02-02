@@ -18,26 +18,27 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends  AppCompatActivity{
 
-//    private VideoView videoView;
+    private VideoView videoView;
     private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
+
         FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
         firebaseAppCheck.installAppCheckProviderFactory(
                 SafetyNetAppCheckProviderFactory.getInstance());
-        FirebaseAuth.getInstance().signOut();
+//        FirebaseAuth.getInstance().signOut();
         setContentView(R.layout.activity_main);
 
 //         adding video on welcome page
-//        videoView= findViewById(R.id.videoView);
-//        String videoPath="android.resource://"+getPackageName()+"/"+R.raw.v1_1;
-////        Uri creating immutable reference
-//        Uri uri=Uri.parse(videoPath);
-//        videoView.setVideoURI(uri);
-//        videoView.start();
+        videoView= findViewById(R.id.videoView);
+        String videoPath="android.resource://"+getPackageName()+"/"+R.raw.v1_1;
+//        Uri creating immutable reference
+        Uri uri=Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        videoView.start();
 
 
         new Handler().postDelayed(new Runnable() {
@@ -48,8 +49,10 @@ public class MainActivity extends  AppCompatActivity{
 
                 if (user!=null){
                     System.out.println("USERPhone________________"+user.getPhoneNumber());
-                    startActivity(new Intent(MainActivity.this,MainMenu.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                    finish();
+                    startActivity(new Intent(MainActivity.this,MainMenu.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 }else {
+                    finish();
                     Intent intent= new Intent(MainActivity.this,PhoneVerifActivity.class);
                     startActivity(intent);
                 }

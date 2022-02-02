@@ -13,20 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.zatsepicoffee_v1.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import BaseClases.ItemsClass;
-import BaseClases.MainModels;
 
-public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     List<ItemsClass> itemsClasses;
     Context context;
 
-    public PopularAdapter() {
+    public ItemAdapter() {
     }
 
-    public PopularAdapter(List<ItemsClass> itemsClasses, Context context) {
+    public ItemAdapter(List<ItemsClass> itemsClasses, Context context) {
         this.itemsClasses = itemsClasses;
         this.context = context;
 
@@ -39,7 +37,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_item_popular,parent,false);
+                .inflate(R.layout.row_item_tabel,parent,false);
 
         return new ViewHolder(view);
     }
@@ -56,6 +54,8 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
                 .into(holder.imageButton);
         holder.title.setText(itemsClasses.get(position).getTitle());
         holder.price.setText(String.valueOf(itemsClasses.get(position).getPrice())+"P");
+        holder.description.setText(itemsClasses.get(position).getDiscription());
+
     }
 
     @Override
@@ -65,12 +65,13 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageButton imageButton;
-        TextView title,price;
+        TextView title,price,description;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageButton=itemView.findViewById(R.id.popular_btns);
-            title=itemView.findViewById(R.id.popular_txts);
-            price=itemView.findViewById(R.id.popular_txtPrise);
+            imageButton=itemView.findViewById(R.id.item_image_btn);
+            title=itemView.findViewById(R.id.title_item_btn);
+            price=itemView.findViewById(R.id.price_item_txt);
+            description=itemView.findViewById(R.id.descrip_item_txt);
         }
     }
 }

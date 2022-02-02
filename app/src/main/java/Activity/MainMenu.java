@@ -1,62 +1,40 @@
 package Activity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ActionMenuView;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 
 import com.example.zatsepicoffee_v1.R;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Queue;
 
 
-import Adapter.Adapt;
 import Adapter.CaffeAdapter;
 import Adapter.NewsAdapter;
 import Adapter.PopularAdapter;
@@ -64,7 +42,6 @@ import BaseClases.CaffeClass;
 import BaseClases.ItemsClass;
 import BaseClases.MainModels;
 import BaseClases.NewsClass;
-import Interfaces.ICaffeLoadLissener;
 //import butterknife.ButterKnife;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
@@ -76,10 +53,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private FloatingActionButton menuActivity;
     private ImageButton btnFb, btnInst, btnTA;
     //    private ActivityMainMenuBinding binding;
-    private ICaffeLoadLissener iCaffeLoadLissener;
+
     //    private DatabaseReference database;
     private FirebaseFirestore db;
     private CaffeAdapter caffeAdapter;
+    private DocumentReference document;
+    private String path;
 
 
     @Override
@@ -166,9 +145,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         List<CaffeClass> caffeClassList = new ArrayList<>();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainMenu.this, LinearLayoutManager.HORIZONTAL, false);
 
-        Log.d(TAG, String.valueOf(caffeClassList.size()));
-        Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the start");
-
+//        Log.d(TAG, String.valueOf(caffeClassList.size()));
+//        Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the start");
+        
         db.collection("caffe").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -179,7 +158,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                         } else {
                             List<CaffeClass> types = queryDocumentSnapshots.toObjects(CaffeClass.class);
                             caffeClassList.addAll(types);
-                            Log.d(TAG, "onSuccess: " + caffeClassList);
+//                            Log.d(TAG, "onSuccess: " + caffeClassList);
                         }
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()));
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the end");
@@ -187,7 +166,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                         recyclerViewMain.setItemAnimator(itemAnimator);
                         recyclerViewMain.setAdapter(
                                 new CaffeAdapter(caffeClassList, MainMenu.this));
-                        Log.d(TAG, String.valueOf(caffeClassList.size()) + "  AFTER ADAPTER IS GO ");
+//                        Log.d(TAG, String.valueOf(caffeClassList.size()) + "  AFTER ADAPTER IS GO ");
 //                                              for (CaffeClass cc:caffeClassList) {
 //                                                  Log.d(TAG, cc.getId());
 //                                                  Log.d(TAG, cc.getAdress());
@@ -211,21 +190,21 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        Log.d(TAG, String.valueOf(newsClassList.size()) + "  news at the start");
+//                        Log.d(TAG, String.valueOf(newsClassList.size()) + "  news at the start");
                         if (queryDocumentSnapshots.isEmpty()) {
                             Log.d(TAG, "onSuccess: LIST EMPTY");
                             return;
                         } else {
                             List<NewsClass> types = queryDocumentSnapshots.toObjects(NewsClass.class);
                             newsClassList.addAll(types);
-                            Log.d(TAG, "onSuccess: " + newsClassList);
+//                            Log.d(TAG, "onSuccess: " + newsClassList);
                         }
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()));
 //                      Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the end");
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setItemAnimator(itemAnimator);
                         recyclerView.setAdapter(new NewsAdapter(newsClassList, MainMenu.this));
-                        Log.d(TAG, String.valueOf(newsClassList.size()) + "  AFTER ADAPTER IS GO");
+//                        Log.d(TAG, String.valueOf(newsClassList.size()) + "  AFTER ADAPTER IS GO");
 //                                              for (NewsClass cc:newsClassList) {
 //                                                  Log.d(TAG, cc.getId());
 //
@@ -245,40 +224,55 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         Log.d(TAG, String.valueOf(itemsClasses.size()));
         Log.d(TAG, String.valueOf(itemsClasses.size()) + " at the start");
+        
+        ArrayList<String> itemPath = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            itemPath.add("category/categoryId"+String.valueOf(i)+"/");
+            Log.d("GGGGGGGG","category/categoryId"+String.valueOf(i)+"/");
+        }
 
-        db.collection("items").whereEqualTo("popular",true).whereEqualTo("avaliable",true)
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for (QueryDocumentSnapshot q : queryDocumentSnapshots) {
-                            Log.d(TAG, q + " queryDocumentSnapshots is here_________________________________________");
+        for (int j = 0; j < itemPath.size(); j++) {
+            document = db.document(itemPath.get(j));
+            Log.d("YYYYYYYYYYYYYYYYYYYYYt", String.valueOf(document));
+            document.collection("items")
+                    .whereEqualTo("popular",true).whereEqualTo("avaliable",true)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Log.d(TAG, document.getId() + " => " + document.getData());
+
+                                    ItemsClass types =  document.toObject(ItemsClass.class);
+                                    itemsClasses.addAll(Collections.singleton(types));
+                                    Log.d(TAG, "onSuccess: " + itemsClasses);
+                                }
+                            } else {
+                                Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+
+
+                            Log.d(TAG, String.valueOf(itemsClasses.size()) + " at the end");
+
+                                recyclerViewMain.setLayoutManager(linearLayoutManager);
+                                recyclerViewMain.setItemAnimator(itemAnimator);
+                                recyclerViewMain.setAdapter(new PopularAdapter(itemsClasses, MainMenu.this));
+                                Log.d(TAG, String.valueOf(itemsClasses.size()) + "  AFTER ADAPTER IS GO ");
+                                for (ItemsClass cc : itemsClasses) {
+                                    Log.d(TAG, cc.getId());
+                                    Log.d(TAG, cc.getTitle());
+                                    Log.d(TAG, cc.getSize());
+                                    Log.d(TAG, cc.getImagePath());
+                                    Log.d(TAG, "___________________________");
+                                }
+
+
                         }
-                        if (queryDocumentSnapshots.isEmpty()) {
-                            Log.d(TAG, "onSuccess: LIST EMPTY");
-                            return;
-                        } else {
-                            List<ItemsClass> types = queryDocumentSnapshots.toObjects(ItemsClass.class);
-                            Log.d(TAG, "onSuccess: types "+types);
-                            itemsClasses.addAll(types);
-                            Log.d(TAG, "onSuccess: " + itemsClasses);
-                        }
+                    });
+        }
 
-                        Log.d(TAG, String.valueOf(itemsClasses.size()) + " at the end");
-                        recyclerViewMain.setLayoutManager(linearLayoutManager);
-                        recyclerViewMain.setItemAnimator(itemAnimator);
-                        recyclerViewMain.setAdapter(new PopularAdapter(itemsClasses, MainMenu.this));
-                        Log.d(TAG, String.valueOf(itemsClasses.size()) + "  AFTER ADAPTER IS GO ");
-                                              for (ItemsClass cc:itemsClasses) {
-                                                  Log.d(TAG, cc.getId());
-                                                  Log.d(TAG, cc.getTitle());
-//                                                  Log.d(TAG, cc.getSize());
-                                                  Log.d(TAG, cc.getImagePath());
-
-                                                  Log.d(TAG,"___________________________");
-                                              }
-                    }
-                });
     }
 
 

@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Activity.PhoneVerifActivity"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context="Activity.PhoneVerifActivity">
 
-    <ImageView
-        android:id="@+id/iconIv"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/phone_ico"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-       />
 
     <LinearLayout
         android:id="@+id/phoneL1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#AC6565"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginVertical="80dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/yanone_kaffeesatz_bold"
-            android:text="Номер Телефона"
+            android:text="Авторизация"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="25sp" />
@@ -53,39 +45,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="#998E80"
-            android:hint="8 98x xxx xx xx"
+            android:hint="898xxxxxxxx"
             android:padding="10dp"
             android:textAlignment="center" />
 
         <Button
-            android:text="Получить код"
-            android:textSize="10sp"
             android:id="@+id/phoneContBtn"
             android:layout_width="120dp"
             android:layout_height="40dp"
-            android:background="@drawable/round_button"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            />
+            android:background="@drawable/round_button"
+            android:text="Получить код"
+            android:textSize="10sp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/codeL1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="#AC6565"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/yanone_kaffeesatz_bold"
-            android:text="Код Верификации"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="25sp" />
+        android:orientation="vertical"
+       >
 
         <TextView
             android:layout_width="match_parent"
@@ -106,6 +89,7 @@
             android:hint="ххххххх"
             android:padding="10dp"
             android:textAlignment="center" />
+
         <TextView
             android:id="@+id/resenCodeTv"
             android:layout_width="match_parent"
@@ -121,12 +105,11 @@
             android:id="@+id/phoneSumbBtn"
             android:layout_width="120dp"
             android:layout_height="40dp"
-            android:background="@drawable/round_button"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
+            android:background="@drawable/round_button"
             android:text="Проверка"
-            android:textSize="10sp"
-            />
+            android:textSize="10sp" />
 
     </LinearLayout>
 

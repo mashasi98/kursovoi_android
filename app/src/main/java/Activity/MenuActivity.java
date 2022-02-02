@@ -34,7 +34,7 @@ import BaseClases.NewsClass;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener  {
 
-    ImageButton backToMainBtb,img;
+    ImageButton img;
 
     RecyclerView recyclerViewCategory;
     private FirebaseFirestore db;
@@ -47,31 +47,19 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance());
 
         db = FirebaseFirestore.getInstance();
-
         setContentView(R.layout.activity_menu);
+
+
         RecyclerView.ItemAnimator horiz_scrl_animation = new DefaultItemAnimator();
         //кнопки корзины и возврата
 
-        backToMainBtb=findViewById(R.id.back_toMain_btn);
-        backToMainBtb.setOnClickListener(this);
+
+        //recyclerView
         recyclerViewCategory=findViewById(R.id.recycle_view_category);
-
-        //layout
-//        ln=findViewById(R.id.layoutCategory);
-//        ln.setOnClickListener(this);
-
-//        //recycleView
-//        Integer[] ListImageCategory= {R.drawable.category_classic, R.drawable.category_aliter, R.drawable.category_author, R.drawable.category_iced, R.drawable.category_warming, R.drawable.category_fresh, R.drawable.category_meal};
-//        String[] categoryName = {"Классика", "Альтернатива", "Авторское", "Охлаждает","Согревает","Освежает","Перекусить"};
-//        recyclerViewCategory=findViewById(R.id.recycle_view_category);
-//        recyclerViewCategory(ListImageCategory,categoryName,horiz_scrl_animation,recyclerViewCategory);
         loadCategoryFromFarebase(recyclerViewCategory,horiz_scrl_animation);
     }
     public void onClick(View v) {
-        if ( v.getId() == R.id.back_toMain_btn ) {
-            Intent intent = new Intent(MenuActivity.this, MainMenu.class);
-            startActivity(intent);
-        }else if(v.getId() == R.id.popular_btns_pop){
+        if (v.getId() == R.id.popular_btns_pop){
             Intent intent = new Intent(MenuActivity.this, MenuActivityItems.class);
             startActivity(intent);
         }
@@ -81,10 +69,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         List<CategoryClass> categoryClassList = new ArrayList<>();
 
         StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MenuActivity.this, LinearLayoutManager.HORIZONTAL, false);
-//
-//        Log.d(TAG, String.valueOf(newsClassList.size()));
-//        Log.d(TAG, String.valueOf(newsClassList.size()) + " at the start");
+
         db.collection("category").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -104,8 +89,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         recyclerView.setItemAnimator(itemAnimator);
                         CategoryAdapter categoryAdapter=new CategoryAdapter(categoryClassList, MenuActivity.this);
                         recyclerView.setAdapter(categoryAdapter);
-
-
 //                                              for (NewsClass cc:newsClassList) {
 //                                                  Log.d(TAG, cc.getId());
 //
