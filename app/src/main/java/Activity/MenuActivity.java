@@ -2,8 +2,6 @@ package Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -12,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 
 import com.example.zatsepicoffee_v1.R;
@@ -29,8 +26,6 @@ import java.util.List;
 
 import Adapter.CategoryAdapter;
 import BaseClases.CategoryClass;
-import BaseClases.MainModels;
-import BaseClases.NewsClass;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener  {
 

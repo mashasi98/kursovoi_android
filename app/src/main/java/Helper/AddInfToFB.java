@@ -2,30 +2,8 @@ package Helper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.util.Log;
-
-import com.example.zatsepicoffee_v1.R;
-
-import com.google.common.net.InternetDomainName;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.appcheck.FirebaseAppCheck;
-import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
-
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import BaseClases.CaffeClass;
-import BaseClases.CategoryClass;
-import BaseClases.ItemsClass;
-import BaseClases.NewsClass;
 
 
 public class AddInfToFB extends AppCompatActivity {

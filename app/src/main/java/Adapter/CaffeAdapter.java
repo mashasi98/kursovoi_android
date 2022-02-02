@@ -14,13 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.zatsepicoffee_v1.R;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import BaseClases.CaffeClass;
-import BaseClases.MainModels;
 
 public class CaffeAdapter extends RecyclerView.Adapter<CaffeAdapter.ViewHolder> {
     List<CaffeClass> caffeClasses;
