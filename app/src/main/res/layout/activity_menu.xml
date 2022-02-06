@@ -16,19 +16,18 @@
         android:layout_marginEnd="10dp"
     >
 
-        <TextView
+        <ImageButton
+            android:id="@+id/from_menuToMain_BTN"
             android:layout_width="0dp"
-
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
             android:layout_weight="10"
-
-            android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:background="@drawable/sorrow_ico"
+            android:scaleType="centerCrop"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="0dp"
-
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_weight="80"
@@ -39,11 +38,12 @@
             android:textSize="30sp" />
 
         <ImageButton
+            android:id="@+id/from_menuToCard_BTN"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:layout_weight="10"
 
+            android:layout_weight="10"
             android:background="#00000000"
             android:scaleType="centerInside"
             android:src="@drawable/shop_icon" />

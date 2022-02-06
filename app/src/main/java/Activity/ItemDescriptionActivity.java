@@ -3,12 +3,14 @@ package Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.zatsepicoffee_v1.R;
@@ -19,7 +21,6 @@ import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -35,7 +36,8 @@ public class ItemDescriptionActivity extends AppCompatActivity implements View.O
     private Boolean avaliable,popular;
     private DocumentReference document;
     private ImageView imageView;
-    private Button plusBtn, minusBtn,addToCard;
+
+    private ImageButton plusBtn, minusBtn,addToCard,back;
     private TextView textTitle,textSize,textDescript,textPrice,amountTxt;
 
     private DatabaseReference mDatabase;
@@ -70,23 +72,28 @@ public class ItemDescriptionActivity extends AppCompatActivity implements View.O
         amountTxt=findViewById(R.id.amount_count);
         plusBtn =findViewById(R.id.plus_amount_btn);
         minusBtn=findViewById(R.id.minus_amount_btn);
-        addToCard=findViewById(R.id.add_to_card_btn);
+        addToCard=findViewById(R.id.order_btn);
+        back=findViewById(R.id.from_itemBack_BTN);
         Glide
                 .with(this)
                 .load(image)
                 .centerCrop()
                 .into(imageView);
+
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
 
         textTitle.setText(title);
         textSize.setText(size);
         textDescript.setText(description);
         textPrice.setText(Integer.toString(price)+"P");
+        amountTxt.setText((Integer.toString(amount)));
 
-
+//
         plusBtn.setOnClickListener(this);
         minusBtn.setOnClickListener(this);
         addToCard.setOnClickListener(this);
+        back.setOnClickListener(this);
 
 //        Log.d("TAG in new activity cat", categoryId);
 
@@ -99,7 +106,6 @@ public class ItemDescriptionActivity extends AppCompatActivity implements View.O
         document = db.document(path);
 
 
-
     }
 
 
@@ -107,22 +113,27 @@ public class ItemDescriptionActivity extends AppCompatActivity implements View.O
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.plus_amount_btn:
+                Log.d("TAG","onClik+");
                 amount++;
-                amountTxt.setText(Integer.toString(amount));
-                 total=Integer.toString( price*amount)+"P";
-                textPrice.setText(total);
-                break;
-            case R.id.minus_amount_btn:
-                if (amount!=1){
-                    amount--;
-                }else
                 amountTxt.setText(Integer.toString(amount));
                 total=Integer.toString( price*amount)+"P";
                 textPrice.setText(total);
                 break;
-            case R.id.add_to_card_btn:
+            case R.id.minus_amount_btn:
+                Log.d("TAG","onClik-");
+                if (amount!=1){
+                    amount--;
+                    amountTxt.setText(Integer.toString(amount));
+                    total=Integer.toString( price*amount)+"P";
+                    textPrice.setText(total);
+                }
+                break;
+            case R.id.order_btn:
                 AddToBaseCard();
 
+                break;
+            case R.id.from_itemBack_BTN:
+                finish();
                 break;
         }
     }
@@ -131,7 +142,24 @@ public class ItemDescriptionActivity extends AppCompatActivity implements View.O
         ShopingCardClass shopingCardClass = new ShopingCardClass(id,price,size,image,title,description,categoryId,popular,amount);
         document.collection("shopingCard")
                 .document(id)
-                .set(shopingCardClass);
+                .set(shopingCardClass)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("TAG", "DocumentSnapshot successfully written!");
 
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error writing document", e);
+                    }
+                });
+
+        finish();
+        Intent intent=new Intent(ItemDescriptionActivity.this,   MainMenu.class);
+        startActivity(intent);
+        Toast.makeText(this, title+" "+amount+"шт. добавлено в корзину ",Toast.LENGTH_LONG).show();
     }
 }

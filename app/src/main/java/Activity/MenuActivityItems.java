@@ -1,9 +1,11 @@
 package Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ import BaseClases.ItemsClass;
 public class MenuActivityItems extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView recyclerViewItems;
+    private ImageButton back,card;
     private FirebaseFirestore db;
     private TextView category_title;
     private String catTitle,catyId,path;
@@ -62,11 +65,15 @@ public class MenuActivityItems extends AppCompatActivity implements View.OnClick
         path="category/"+catyId+"/";
         System.out.println(path);
         document = db.document(path);
-
-
-        //нопки
         category_title=findViewById(R.id.category_txt_item);
         category_title.setText(catTitle);
+
+        //нопки
+        back=findViewById(R.id.from_itemToMenu_BTN);
+        card=findViewById(R.id.from_itemToCard_BTN);
+        back.setOnClickListener(this);
+        card.setOnClickListener(this);
+
         //
         recyclerViewItems = findViewById(R.id.recycle_view_items);
         RecyclerView.ItemAnimator horiz_scrl_animation = new DefaultItemAnimator();
@@ -77,6 +84,13 @@ public class MenuActivityItems extends AppCompatActivity implements View.OnClick
 
     public void onClick(View v) {
         switch(v.getId()){
+            case R.id.from_itemToMenu_BTN:
+                finish();
+                break;
+            case R.id.from_itemToCard_BTN:
+                Intent intent =new Intent(MenuActivityItems.this,ShopingCardActivity.class);
+                startActivity(intent);
+                break;
 
         }
 

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZatsepiCoffee_v1">
         <activity
+            android:name="Activity.AcountActivity"
+            android:exported="false" />
+        <activity
+            android:name="Activity.ThanksActivity"
+            android:exported="false" />
+        <activity
             android:name="Activity.ShopingCardActivity"
             android:exported="false" />
         <activity

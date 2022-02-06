@@ -311,72 +311,55 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="#32210C"
-            app:fabCradleMargin="10dp"
-            app:fabCradleRoundedCornerRadius="0dp"
+            app:fabCradleMargin="16dp"
+            app:fabCradleRoundedCornerRadius="89dp"
         >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="100dp"
                 android:layout_marginEnd="15dp"
-                android:layout_gravity="bottom"
-                android:paddingTop="5dp">
-                <LinearLayout
+            >
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp">
-                    <ImageButton
-                        android:id="@+id/appBarHomeBtn"
-                        android:layout_width="60dp"
-                        android:layout_height="52dp"
-                        android:backgroundTint="#00572708"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home"
-                        android:paddingTop="20dp"
+                <ImageButton
+                    android:id="@+id/appBarShopcardBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
 
-                        android:layout_marginEnd="20dp"
-                        android:tint="@color/white" />
+                    android:layout_weight="0.33"
+                    android:backgroundTint="#00572708"
+                    android:paddingTop="20dp"
+                    android:scaleType="center"
+                    android:src="@drawable/shopping_icon"
+                    android:tint="@color/white" />
+                <ImageButton
 
-                    <ImageButton
-                        android:id="@+id/appBarShopcardBtn"
-                        android:layout_width="60dp"
-                        android:layout_height="52dp"
-                        android:paddingTop="20dp"
-                        android:backgroundTint="#00572708"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/shop_icon"
-                        android:tint="@color/white"
-                        android:layout_marginEnd="15dp"/>
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+
+                    android:layout_weight="0.33"
+                    android:backgroundTint="#00572708"
+                    android:paddingTop="20dp"
+                    android:scaleType="center"
+
+                    android:tint="@color/white" />
+
+                <ImageButton
+                    android:id="@+id/appBarprofileBtn"
+                    android:layout_weight="0.33"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+
+
+                    android:backgroundTint="#00572708"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/account"
+                    android:tint="@color/white" />
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="end"
-                    android:layout_marginStart="15dp">
-                    <ImageButton
-                        android:id="@+id/appBarprofileBtn"
-                        android:layout_width="74dp"
-                        android:layout_height="65dp"
-                        android:layout_marginStart="15dp"
 
-                        android:backgroundTint="#00572708"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/profile"
-                        android:tint="@color/white" />
 
-                    <ImageButton
-                        android:id="@+id/appBarFavoritesdBtn"
-                        android:layout_width="68dp"
-                        android:layout_height="match_parent"
-                        android:backgroundTint="#00572708"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/like"
-                        android:tint="@color/white" />
-                </LinearLayout>
 
-            </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

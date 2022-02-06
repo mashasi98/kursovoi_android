@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/double_border_thin"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:background="@drawable/double_border_thin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +15,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/item_image_btn"
+            android:id="@+id/card_ror_image"
             android:layout_width="121dp"
             android:layout_height="115dp"
             android:layout_marginStart="11dp"
@@ -36,12 +34,12 @@
             android:id="@+id/title_item_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:fontFamily="@font/cormorant_sc_medium"
             android:text="Облепиховый чай "
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="12sp"
-            android:layout_marginTop="6dp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/descrip_item_txt"
@@ -53,36 +51,25 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="8sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/price_item_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="bottom"
                 android:text="149P"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="15dp"
-                android:textColor="@color/black"
-                android:gravity="bottom"
-                tools:ignore="RtlCompat"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"/>
+                tools:ignore="RtlCompat" />
 
-            <ImageButton
-                android:id="@+id/btn_plus_item"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="5dp"
-                android:backgroundTint="#00FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/plus_icon"
-                android:textColor="@color/black"
-                android:tint="#97FFFFFF"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
         </LinearLayout>
 
     </LinearLayout>

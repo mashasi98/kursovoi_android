@@ -29,9 +29,9 @@ import BaseClases.CategoryClass;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener  {
 
-    ImageButton img;
+    private ImageButton back,card;
 
-    RecyclerView recyclerViewCategory;
+    private RecyclerView recyclerViewCategory;
     private FirebaseFirestore db;
     private static final String TAG = "TAG";
     @Override
@@ -47,17 +47,29 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         RecyclerView.ItemAnimator horiz_scrl_animation = new DefaultItemAnimator();
         //кнопки корзины и возврата
+        back=findViewById(R.id.from_menuToMain_BTN);
+        card=findViewById(R.id.from_menuToCard_BTN);
 
+        back.setOnClickListener(this);
+        card.setOnClickListener(this);
 
         //recyclerView
         recyclerViewCategory=findViewById(R.id.recycle_view_category);
         loadCategoryFromFarebase(recyclerViewCategory,horiz_scrl_animation);
     }
     public void onClick(View v) {
-        if (v.getId() == R.id.popular_btns_pop){
-            Intent intent = new Intent(MenuActivity.this, MenuActivityItems.class);
+
+        switch (v.getId()){
+            case R.id.from_menuToMain_BTN:
+                finish();
+                break;
+        case R.id.from_menuToCard_BTN:
+            Intent intent =new Intent(MenuActivity.this,ShopingCardActivity.class);
             startActivity(intent);
+            break;
         }
+
+
     }
     private void loadCategoryFromFarebase(RecyclerView recyclerView, RecyclerView.ItemAnimator itemAnimator) {
 
@@ -78,20 +90,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                             categoryClassList.addAll(types);
                             Log.d(TAG, "onSuccess: " + categoryClassList);
                         }
-//                      Log.d(TAG, String.valueOf(caffeClassList.size()));
-//                      Log.d(TAG, String.valueOf(caffeClassList.size()) + " at the end");
                         recyclerView.setLayoutManager(staggeredGridLayoutManager);
                         recyclerView.setItemAnimator(itemAnimator);
                         CategoryAdapter categoryAdapter=new CategoryAdapter(categoryClassList, MenuActivity.this);
                         recyclerView.setAdapter(categoryAdapter);
-//                                              for (NewsClass cc:newsClassList) {
-//                                                  Log.d(TAG, cc.getId());
-//
-//                                                  Log.d(TAG, cc.getTitle());
-//                                                  Log.d(TAG, cc.getImagePath());
-//                                                  Log.d(TAG, cc.getDiscription());
-//                                                  Log.d(TAG,"___________________________");
-//                                              }
+
                     }
                 });
     }

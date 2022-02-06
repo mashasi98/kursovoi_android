@@ -23,8 +23,8 @@
 
         <ImageButton
             android:id="@+id/caffe_btn_item"
-            android:layout_width="129dp"
-            android:layout_height="141dp"
+            android:layout_width="121dp"
+            android:layout_height="120dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5sp"
             android:layout_marginBottom="5dp"
@@ -33,7 +33,6 @@
             android:backgroundTint="#00FFFFFF"
             android:longClickable="false"
             android:scaleType="centerCrop"
-            android:src="@drawable/caff_kras"
             android:tint="#00FFFFFF"
             tools:src="@drawable/americano" />
 
@@ -54,7 +53,6 @@
                 android:layout_marginEnd="10dp"
 
                 android:fontFamily="@font/cormorant_sc_bold"
-                android:text="Наш адрес "
                 android:textAlignment="textStart"
                 android:textColor="@color/black" />
 
@@ -67,7 +65,6 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/cormorant_garamond_bold"
-                android:text="г.Краснодар,ул. Митрофана Седина, 11"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
@@ -81,11 +78,10 @@
                 android:layout_marginEnd="10dp"
 
                 android:fontFamily="@font/cormorant_sc_bold"
-                android:text="Понедельник-Пятница 07:30 – 18:00
-                Суббота-Воскресеньe Выходной"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="11sp" />
+
             <TextView
                 android:id="@+id/caffe_text4"
                 android:layout_width="match_parent"
@@ -95,10 +91,6 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/cormorant_sc_bold"
-                android:text="Понедельник-Пятница 07:30 – 18:00
-                Суббота-Воскресеньe Выходной
-
-                +7(928) 849-10-50"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="11sp" />

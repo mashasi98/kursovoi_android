@@ -53,7 +53,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         Glide
                 .with(context)
                 .load(url)
-                .centerCrop()
+                .centerInside()
                 .into(holder.imageButton);
         holder.title.setText(itemsClasses.get(position).getTitle());
         holder.price.setText(String.valueOf(itemsClasses.get(position).getPrice())+"P");
@@ -71,7 +71,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         TextView title,price,description;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageButton=itemView.findViewById(R.id.item_image_btn);
+            imageButton=itemView.findViewById(R.id.card_ror_image);
             title=itemView.findViewById(R.id.title_item_btn);
             price=itemView.findViewById(R.id.price_item_txt);
             description=itemView.findViewById(R.id.descrip_item_txt);

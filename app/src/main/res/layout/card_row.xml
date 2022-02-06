@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_border_card"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/card_ror_image"
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.03"
+            android:background="#00FFFFFF"
+            android:scaleType="centerCrop"
+            android:src="@drawable/americano"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0.97"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/card_ror_title_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Американо"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/card_ror_size_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="size"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/card_ror_price_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:gravity="bottom"
+                    android:text="145 P"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/shape_round"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/minus_amountCard_btn"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="3dp"
+                        android:layout_weight="0.33"
+                        android:backgroundTint="#07FFFFFF"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/minus_ico"
+                        android:textAlignment="center"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/amountCard_count"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33"
+                        android:gravity="center"
+
+                        android:text="14"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+
+                    <ImageButton
+                        android:id="@+id/plus_amountCard_btn"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="3dp"
+                        android:layout_weight="0.33"
+                        android:backgroundTint="#07FFFFFF"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/plus_icon"
+                        android:textAlignment="center"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
