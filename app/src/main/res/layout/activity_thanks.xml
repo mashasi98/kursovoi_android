@@ -6,45 +6,78 @@
     android:layout_height="match_parent"
     tools:context="Activity.ThanksActivity"
     android:background="@color/white"
+
     android:orientation="vertical">
     <LinearLayout
+
+
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="0.5"
         android:orientation="vertical"
-        android:layout_margin="30dp">
+
+     >
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.7"
+            android:layout_weight="0.65"
+            android:layout_margin="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/success" />
-    <TextView
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:layout_width="match_parent"
-        android:text="Спасибо за заказ!"
-        android:textColor="@color/black"
-        android:gravity="center"
-       />
-        <TextView
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:layout_width="match_parent"
-            android:text="Мы уже начали его готовить !"
-            android:textColor="@color/black"
-            android:gravity="center"
-            />
+            android:src="@drawable/logo_2" />
 
-        <Button
-            android:id="@+id/order_toMainBtn"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="0.1"
+            android:layout_weight="0.051"
+            android:fontFamily="@font/yanone_kaffeesatz"
             android:gravity="center"
-            android:text="Главное меню" />
+            android:text="Спасибо за заказ!"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            android:fontFamily="@font/rubik_light"
+            android:gravity="center"
+            android:text="Мы уже его готовим"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
+
+            <ImageButton
+                android:id="@+id/order_toMainBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/round_button"
+                android:src="@drawable/round_button"
+                android:text="Добавить в корзину "
+                tools:layout_editor_absoluteX="14dp"
+                tools:layout_editor_absoluteY="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:fontFamily="@font/yanone_kaffeesatz"
+                android:gravity="center"
+                android:text="На главное меню"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/order_toMainBtn"
+                app:layout_constraintStart_toStartOf="@+id/order_toMainBtn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

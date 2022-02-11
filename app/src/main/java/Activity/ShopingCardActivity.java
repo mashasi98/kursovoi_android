@@ -48,6 +48,7 @@ public class ShopingCardActivity extends AppCompatActivity implements View.OnCli
     private DocumentReference document;
     private Toast toast;
     private int totalAmount = 0;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +126,8 @@ public class ShopingCardActivity extends AppCompatActivity implements View.OnCli
                         totalPrise.setText(String.valueOf(totalAmount));
                         allPrice.setText(String.valueOf(totalAmount));
 
+
+
                     }
                 });
 
@@ -154,8 +157,9 @@ public class ShopingCardActivity extends AppCompatActivity implements View.OnCli
             }
 
             finish();
-            Intent intent = new Intent(ShopingCardActivity.this, ThanksActivity.class);
-            startActivity(intent);
+            overridePendingTransition(0, 0);
+            startActivity(getIntent());
+            overridePendingTransition(0, 0);
         }
 
     }
@@ -178,6 +182,10 @@ public class ShopingCardActivity extends AppCompatActivity implements View.OnCli
                         public void onSuccess(Void aVoid) {
                             Log.d(TAG, "DocumentSnapshot successfully written!");
                             clearCard();
+                            finish();
+                            intent=new Intent(ShopingCardActivity.this,ThanksActivity.class);
+                            startActivity(intent);
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -186,7 +194,7 @@ public class ShopingCardActivity extends AppCompatActivity implements View.OnCli
                             Log.w(TAG, "Error writing document", e);
                         }
                     });
-            Toast.makeText(this, "Заказ оформлен!", Toast.LENGTH_LONG).show();
+
 
         }else {
             Toast.makeText(this, "Ваша корзина пуста", Toast.LENGTH_LONG).show();

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -73,13 +74,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener  {
         ImageButton imageButton;
         TextView title;
+        LinearLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageButton = itemView.findViewById(R.id.popular_btns_pop);
             title = itemView.findViewById(R.id.popular_txts_pop);
+            layout=itemView.findViewById(R.id.layoutCategory);
+            layout.setOnClickListener(this);
             imageButton.setOnClickListener(this);
-
 
         }
 

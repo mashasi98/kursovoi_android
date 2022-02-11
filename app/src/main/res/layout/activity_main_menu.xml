@@ -64,12 +64,12 @@
                         android:layout_height="match_parent"
                         android:layout_marginEnd="5dp"
                         android:fontFamily="@font/rubik_light"
+                        android:paddingEnd="40dp"
                         android:text="Хорошего дня "
                         android:textAlignment="textEnd"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="italic"
-                        android:paddingEnd="40dp"
 
                         />
 

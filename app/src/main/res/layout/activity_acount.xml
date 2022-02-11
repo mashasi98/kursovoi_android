@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Activity.AcountActivity">
+    tools:context="Activity.AcountActivity"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_margin="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_2" />
+
+        <TextView
+            android:id="@+id/aacountName_txt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.051"
+            android:fontFamily="@font/yanone_kaffeesatz"
+            android:gravity="center"
+            android:text="ПРИВЕТ,ДРУГ!"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/aacountPhone_txt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.051"
+            android:fontFamily="@font/rubik_light"
+            android:gravity="center"
+            android:text="ПРИВЕТ,ДРУГ!"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
+
+            <ImageButton
+                android:id="@+id/account_order_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/round_button"
+                android:src="@drawable/round_button"
+                android:text="Добавить в корзину "
+                tools:layout_editor_absoluteX="14dp"
+                tools:layout_editor_absoluteY="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:fontFamily="@font/yanone_kaffeesatz"
+                android:gravity="center"
+                android:text="Заказы"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/account_order_Btn"
+                app:layout_constraintEnd_toEndOf="@+id/account_order_Btn"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="@+id/account_order_Btn"
+                app:layout_constraintTop_toTopOf="@+id/account_order_Btn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
+
+            <ImageButton
+                android:id="@+id/account_change_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/round_button"
+                android:src="@drawable/round_button"
+                android:text="Добавить в корзину "
+                tools:layout_editor_absoluteX="14dp"
+                tools:layout_editor_absoluteY="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:fontFamily="@font/yanone_kaffeesatz"
+                android:gravity="center"
+                android:text="Сменить аккаунт"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/account_change_Btn"
+                app:layout_constraintEnd_toEndOf="@+id/account_change_Btn"
+                app:layout_constraintStart_toStartOf="@+id/account_change_Btn"
+                app:layout_constraintTop_toTopOf="@+id/account_change_Btn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

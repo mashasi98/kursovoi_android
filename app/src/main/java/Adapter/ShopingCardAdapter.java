@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.List;
 
 import Activity.ItemDescriptionActivity;
+import Activity.ShopingCardActivity;
 import BaseClases.Choice;
 import BaseClases.ItemsClass;
 import BaseClases.ShopingCardClass;
@@ -50,6 +51,11 @@ public class ShopingCardAdapter extends RecyclerView.Adapter<ShopingCardAdapter.
         this.context = context;
 
     }
+
+    public Context getContext() {
+        return context;
+    }
+
 
 
     @NonNull
@@ -108,8 +114,6 @@ public class ShopingCardAdapter extends RecyclerView.Adapter<ShopingCardAdapter.
             size=itemView.findViewById(R.id.card_ror_size_txt);
             amountTxt=itemView.findViewById(R.id.amountCard_count);
 
-//            allPrice=itemView.findViewById(R.id.all_price_txt);
-//            totalPrise=itemView.findViewById(R.id.total_price_txt);
 
             db = FirebaseFirestore.getInstance();
             mAuth = FirebaseAuth.getInstance();
@@ -143,36 +147,62 @@ public class ShopingCardAdapter extends RecyclerView.Adapter<ShopingCardAdapter.
             switch (choice){
                 case "+":
                     amount++;
+                    changeInformation();
                     break;
                 case "-":
                     if (amount!=1){
                         amount--;
+                        changeInformation();
+                    }else {
+                        deleteItemBase();
+//                        ShopingCardAdapter.this.getContext().finish();
+                        Intent a = new Intent(ShopingCardAdapter.this.getContext(), ShopingCardActivity.class);
+                        ShopingCardAdapter.this.getContext().startActivity(a);
+
                     }
                 break;
             }
+
+        }
+
+        private void changeInformation(){
             shopingCardClasses.get(position).setAmount(amount);
             total= Integer.toString( shopingCardClasses.get(position).getPrice()*amount)+"P";
             amountTxt.setText(Integer.toString(amount));
             price.setText(total);
             document = db.document("users/"+phone+"/"+"shopingCard/"+shopingCardClasses.get(position).getId()+"/");
-            Log.d("DOCUMENT ++", String.valueOf(document));
-            Log.d("Path  ++","users/"+phone+"/"+"shopingCard/"+shopingCardClasses.get(position).getId()+"/");
-            Log.d("Id ++", shopingCardClasses.get(position).getId());
-            updateCardBase(document,amount);
-//            for (ShopingCardClass s:shopingCardClasses) {
-//                totalAmount+=s.getAmount()*s.getPrice();
-//                Log.d("totalAmount ", String.valueOf(totalAmount));
-//            }
+//            Log.d("DOCUMENT ++", String.valueOf(document));
+//            Log.d("Path  ++","users/"+phone+"/"+"shopingCard/"+shopingCardClasses.get(position).getId()+"/");
+//            Log.d("Id ++", shopingCardClasses.get(position).getId());
+            updateCardBase();
 
-//            totalPrise.setText(String.valueOf(totalAmount));
-//            allPrice.setText(String.valueOf(totalAmount));
+
 
         }
 
-        private void updateCardBase(DocumentReference document,int amount){
+        private void updateCardBase(){
             Log.d("Updating ", "star!!!!!");
             document
                     .update("amount", amount)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("TAG", "DocumentSnapshot successfully updated!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG", "Error updating document", e);
+                        }
+                    });
+
+        }
+
+        private void deleteItemBase(){
+            Log.d("Deliting  ", "star!!!!!");
+            document
+                    .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

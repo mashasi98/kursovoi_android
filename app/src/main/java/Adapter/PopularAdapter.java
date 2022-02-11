@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -67,11 +68,14 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageButton imageButton;
         TextView title,price;
+        LinearLayout layout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageButton=itemView.findViewById(R.id.popular_btns);
             title=itemView.findViewById(R.id.popular_txts);
             price=itemView.findViewById(R.id.popular_txtPrise);
+            layout=itemView.findViewById(R.id.layoutPopularLay);
+            layout.setOnClickListener(this);
             imageButton.setOnClickListener(this);
         }
 

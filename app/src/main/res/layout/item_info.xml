@@ -22,7 +22,7 @@
             <ImageView
 
                 android:id="@+id/image_item_info"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/americano"
@@ -48,9 +48,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -66,35 +63,43 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.15"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp">
 
             <TextView
                 android:id="@+id/info_title_txt"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.9"
+                android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
                 android:text="Американо"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="30sp" />
 
         </LinearLayout>
 
         <TextView
+            android:layout_marginStart="10dp"
             android:id="@+id/info_size_txt"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="5dp"
             android:layout_weight="0.1"
+            android:fontFamily="@font/rubik_light"
+            android:gravity="center_vertical"
             android:text="250ml"
             android:textColor="@color/black"
             android:textSize="11sp" />
 
         <TextView
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:id="@+id/info_descript_txt"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.6"
+            android:fontFamily="@font/rubik_light"
             android:text="so long description"
             android:textColor="@color/black"
             android:textSize="15sp" />
@@ -107,22 +112,28 @@
             android:orientation="horizontal"
 
             >
+
             <TextView
                 android:id="@+id/info_price_txt"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.7"
+                android:fontFamily="@font/rubik_light"
                 android:gravity="center_vertical"
                 android:text="210Р"
+                android:layout_marginStart="10dp"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
+
                 android:background="@drawable/shape_round">
 
                 <ImageButton
+
                     android:id="@+id/minus_amount_btn"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="0dp"
@@ -140,11 +151,12 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.33"
-                    android:gravity="center"
+                    android:fontFamily="@font/yanone_kaffeesatz_bold"
 
+                    android:gravity="center"
                     android:text="14"
                     android:textColor="@color/black"
-                    android:textSize="10sp" />
+                    android:textSize="13sp" />
 
                 <ImageButton
                     android:id="@+id/plus_amount_btn"
@@ -181,19 +193,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/shape_round"
-                android:src="@drawable/shape_round"
-                android:text="Добавить в корзину " />
+                android:background="@drawable/round_button"
+                android:src="@drawable/round_button"
+                android:text="Добавить в корзину "
+                tools:layout_editor_absoluteX="14dp"
+                tools:layout_editor_absoluteY="14dp" />
 
             <TextView
-                android:layout_width="151dp"
+                android:layout_width="wrap_content"
                 android:layout_height="46dp"
+                android:fontFamily="@font/yanone_kaffeesatz"
                 android:gravity="center"
                 android:text="Добавить в корзину"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/order_btn"
                 app:layout_constraintEnd_toEndOf="@+id/order_btn"
                 app:layout_constraintStart_toStartOf="@+id/order_btn"

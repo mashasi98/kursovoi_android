@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.zatsepicoffee_v1.R;
 
 public class ThanksActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button toMainBtn;
+    private ImageButton toMainBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

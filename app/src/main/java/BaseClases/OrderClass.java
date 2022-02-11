@@ -5,16 +5,16 @@ import java.util.List;
 public class OrderClass {
     private int totalAmount;
     private String date, time;
-    private List<ShopingCardClass> shopingCardClasses;
+    private List<ShopingCardClass> shopingCardClassesList;
 
     public OrderClass() {
     }
 
-    public OrderClass(int totalAmount, String date, String time, List<ShopingCardClass> shopingCardClasses) {
+    public OrderClass(int totalAmount, String date, String time, List<ShopingCardClass> shopingCardClassesList) {
         this.totalAmount = totalAmount;
         this.date = date;
         this.time = time;
-        this.shopingCardClasses = shopingCardClasses;
+        this.shopingCardClassesList = shopingCardClassesList;
     }
 
     public String getTime() {
@@ -41,11 +41,11 @@ public class OrderClass {
         this.date = date;
     }
 
-    public List<ShopingCardClass> getShopingCardClasses() {
-        return shopingCardClasses;
+    public List<ShopingCardClass> getShopingCardClassesList() {
+        return shopingCardClassesList;
     }
 
-    public void setShopingCardClasses(List<ShopingCardClass> shopingCardClasses) {
-        this.shopingCardClasses = shopingCardClasses;
+    public void setShopingCardClassesList(List<ShopingCardClass> shopingCardClasses) {
+        this.shopingCardClassesList = shopingCardClasses;
     }
 }

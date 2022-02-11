@@ -6,17 +6,28 @@
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/drawable/layout_bg.xml" value="0.3828125" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/drawable/round_button.xml" value="0.3828125" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/drawable/shape_border_card.xml" value="0.3828125" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/drawable/shape_halfround.xml" value="0.3026041666666667" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/drawable/shape_kvadr.xml" value="0.3026041666666667" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/drawable/shape_round.xml" value="0.3828125" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_acount.xml" value="0.33697916666666666" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_add_inf_to_fb.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_all_oders2.xml" value="0.3359375" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_all_oreders.xml" value="0.321875" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_input_name.xml" value="0.25625" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_item_description.xml" value="0.30625" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_menu.xml" value="0.1" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_menu.xml" value="0.22" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_menu_items.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_order_deatail.xml" value="0.253125" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_phone_verif.xml" value="0.36666666666666664" />
-        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_shoping_card.xml" value="0.1" />
-        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_thanks.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_shoping_card.xml" value="0.33" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/activity_thanks.xml" value="0.22" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/allOrder_row.xml" value="0.33055555555555555" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/all_orderDetails_row.xml" value="0.2864583333333333" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/all_order_row.xml" value="0.33" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/card_row.xml" value="0.3314814814814815" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/card_row2.xml" value="0.26197916666666665" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/item_info.xml" value="0.33" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/menu_descrt.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_itemTabel.xml" value="0.36666666666666664" />
@@ -24,8 +35,8 @@
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_category.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_categoryItems.xml" value="0.36666666666666664" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_news.xml" value="0.36666666666666664" />
-        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_popular.xml" value="0.36666666666666664" />
-        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_tabel.xml" value="0.2526041666666667" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_popular.xml" value="0.5" />
+        <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/row_item_tabel.xml" value="0.33" />
         <entry key="..\:/Android studio project/zatsepi/app/src/main/res/layout/сcard_row.xml" value="0.3380208333333333" />
       </map>
     </option>

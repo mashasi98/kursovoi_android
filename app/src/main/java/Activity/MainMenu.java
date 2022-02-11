@@ -53,12 +53,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private ArrayList<MainModels> popular_list, news_list, cafe_list;
     private BottomNavigationView bottomNavigationView;
     private FloatingActionButton menuActivity;
-    private ImageButton btnFb, btnInst, btnTA,btnCard;
+    private ImageButton btnFb, btnInst, btnTA,btnCard,btnAc;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private CaffeAdapter caffeAdapter;
     private DocumentReference document;
-    private String phone,name;
+    private String phone="",name="";
     private TextView helloText;
 
 
@@ -85,6 +85,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         menuActivity.setOnClickListener(this);
         btnCard=findViewById(R.id.appBarShopcardBtn);
         btnCard.setOnClickListener(this);
+        btnAc=findViewById(R.id.appBarprofileBtn);
+        btnAc.setOnClickListener(this);
 //      Кнопки соц сетей
         btnInst = findViewById(R.id.btnInst);
         btnInst.setOnClickListener(this);
@@ -122,6 +124,21 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         }else if (v.getId() == R.id.appBarShopcardBtn) {
             Intent intent = new Intent(MainMenu.this, ShopingCardActivity.class);
             startActivity(intent);
+        }else if (v.getId() == R.id.appBarprofileBtn) {
+            Intent intent = new Intent(MainMenu.this, AcountActivity.class);
+            Log.d("TAGGGGGG", String.valueOf(!name.isEmpty()));
+            Log.d("TAGGGGGG", "My name "+String.valueOf(name));
+            Log.d("TAGGGGGG", String.valueOf(phone));
+            if (!name.isEmpty()){
+                intent.putExtra("accountName",name );
+                intent.putExtra("accountPhone",phone );
+                startActivity(intent);
+            }else {
+                intent.putExtra("accountName","name" );
+                intent.putExtra("accountPhone",phone );
+                startActivity(intent);
+            }
+
         }
     }
     private void loadNameFromFarebase() {

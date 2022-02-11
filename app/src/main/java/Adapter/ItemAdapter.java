@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,7 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 .into(holder.imageButton);
         holder.title.setText(itemsClasses.get(position).getTitle());
         holder.price.setText(String.valueOf(itemsClasses.get(position).getPrice())+"P");
-        holder.description.setText(itemsClasses.get(position).getDiscription());
+
 
     }
 
@@ -68,15 +70,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageButton imageButton;
-        TextView title,price,description;
+        TextView title,price;
+        LinearLayout layout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageButton=itemView.findViewById(R.id.card_ror_image);
             title=itemView.findViewById(R.id.title_item_btn);
             price=itemView.findViewById(R.id.price_item_txt);
-            description=itemView.findViewById(R.id.descrip_item_txt);
 
+            layout=itemView.findViewById(R.id.menuItemLay);
+            layout.setOnClickListener(this);
             imageButton.setOnClickListener(this);
+
         }
 
         @Override
